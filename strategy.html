@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategy Case Study — Flannery Allen</title>
+
+<!-- Security Headers -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube-nocookie.com https://www.chatbase.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube-nocookie.com https://www.chatbase.co https://narrative-intelligence-demo.netlify.app; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
 <div class="julie-page">
   <div class="wrap">
     
@@ -140,14 +159,14 @@
                   </div>
                 </div>
                 
-                <button class="carousel-btn carousel-prev" onclick="moveSlide(-1)">‹</button>
-                <button class="carousel-btn carousel-next" onclick="moveSlide(1)">›</button>
+                <button class="carousel-btn carousel-prev">‹</button>
+                <button class="carousel-btn carousel-next">›</button>
               </div>
               
               <div class="carousel-dots">
-                <span class="dot active" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
               </div>
             </div>
           </div>
@@ -997,3 +1016,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Optional: Auto-advance carousel every 10 seconds
 // setInterval(() => moveSlide(1), 10000);
 </script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
