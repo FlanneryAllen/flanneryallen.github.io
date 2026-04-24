@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JCPenney Oscars Campaign • Julie Flannery Allen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="julie-page">
+  <div class="wrap">
+    
+    <!-- HEADER -->
+    <section class="hero">
+      <a href="/agency" class="back-link">&larr; Back to Agency Life</a>
+      <div class="page-label">Featured Campaign</div>
+      <h1 class="hero-title">JCPENNEY</h1>
+      <div class="hero-sub">When it fits, you feel it.</div>
+      <p class="page-desc">
+        I was brought in to freelance for a couple of weeks. I ended up contributing for nearly a year. <strong>Because like the line we were given to bring to life, when it fits, you feel it.</strong>
+      </p>
+    </section>
+
+    <!-- VIDEO SHOWCASE -->
+    <section class="video-showcase">
+      <div class="showcase-label">The Campaign</div>
+      
+      <!-- All Videos Equal Treatment -->
+      <div class="video-grid">
+        <div class="video-item">
+          <div class="video-tile">
+            <iframe src="https://www.youtube.com/embed/FA213hyHm0Y?si=popdOk5-jK58Gq3r" allowfullscreen></iframe>
+          </div>
+          <div class="video-caption">
+            <div class="video-title">You know it when it hugs your hips.</div>
+          </div>
+        </div>
+        
+        <div class="video-item">
+          <div class="video-tile">
+            <iframe src="https://www.youtube.com/embed/q0dfMPVhS2c?si=popdOk5-jK58Gq3r" allowfullscreen></iframe>
+          </div>
+          <div class="video-caption">
+            <div class="video-title">You feel it when it fits so well.</div>
+          </div>
+        </div>
+        
+        <div class="video-item">
+          <div class="video-tile">
+            <iframe src="https://www.youtube.com/embed/et6P3dwxbgQ?si=popdOk5-jK58Gq3r" allowfullscreen></iframe>
+          </div>
+          <div class="video-caption">
+            <div class="video-title">A fit that feels like fate.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="footer">
+      <span class="footer-note">Julie Flannery Allen &middot; flanneryallen.com</span>
+    </section>
+
+  </div>
+</div>
+
+<style>
+  .julie-page {
+    --bg: #d4d2cc;
+    --bg-2: #cbcac3;
+    --bg-3: #c3c1ba;
+    --paper-fiber: rgba(255,255,255,0.045);
+    --text: #53504b;
+    --text-soft: #716d67;
+    --text-faint: rgba(83,80,75,0.54);
+    --magenta: #ff4a96;
+    --magenta-deep: #ea3d86;
+    --magenta-soft: rgba(255,74,150,0.14);
+    --line: rgba(255,255,255,0.16);
+    --card-line: rgba(255,255,255,0.12);
+    --display: 'Archivo Black', Arial Black, sans-serif;
+    --body: 'Inter', Arial, sans-serif;
+    --max: 1220px;
+    --ease: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: var(--body);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 35%),
+      radial-gradient(circle at 80% 10%, rgba(255,255,255,0.04), transparent 28%),
+      radial-gradient(circle at 60% 80%, rgba(255,255,255,0.035), transparent 32%),
+      repeating-linear-gradient(0deg, transparent 0 39px, var(--paper-fiber) 39px 40px),
+      repeating-linear-gradient(90deg, transparent 0 59px, rgba(255,255,255,0.018) 59px 60px),
+      linear-gradient(to bottom, var(--bg), var(--bg-2) 52%, var(--bg-3));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .julie-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 8px 8px;
+    mix-blend-mode: soft-light;
+    z-index: 1;
+  }
+
+  .julie-page *,
+  .julie-page *::before,
+  .julie-page *::after { box-sizing: border-box; }
+
+  .julie-page a { color: inherit; text-decoration: none; }
+
+  .julie-page .wrap {
+    width: min(calc(100% - 30px), var(--max));
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* HEADER */
+  .julie-page .hero {
+    padding: 60px 0 80px;
+  }
+
+  .julie-page .back-link {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+    transition: color var(--ease);
+  }
+
+  .julie-page .back-link:hover {
+    color: var(--magenta);
+  }
+
+  .julie-page .page-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--magenta);
+    margin-bottom: 16px;
+  }
+
+  .julie-page .hero-title {
+    font-family: var(--display);
+    color: var(--magenta);
+    font-size: clamp(32px, 6vw, 72px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+  }
+
+  .julie-page .dot,
+  .julie-page .comma {
+    color: var(--text);
+  }
+
+  .julie-page .hero-sub {
+    font-family: var(--display);
+    font-size: clamp(18px, 3vw, 24px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 32px;
+  }
+
+  .julie-page .page-desc {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text);
+    max-width: 56ch;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  /* VIDEO SHOWCASE */
+  .julie-page .video-showcase {
+    margin-bottom: 80px;
+  }
+
+  .julie-page .showcase-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--magenta);
+    margin-bottom: 32px;
+  }
+
+  .julie-page .video-tile {
+    background: rgba(255,255,255,0.05);
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid var(--card-line);
+  }
+
+  .julie-page .video-tile iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .julie-page .video-caption {
+    padding-left: 4px;
+  }
+
+  .julie-page .video-title {
+    font-family: var(--display);
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .julie-page .video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* FOOTER */
+  .julie-page .footer {
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--line);
+  }
+
+  .julie-page .footer-note {
+    font-size: 12px;
+    color: var(--text-soft);
+    display: block;
+    text-align: center;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .julie-page .video-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    
+    .julie-page .hero {
+      padding: 40px 0 60px;
+    }
+  }
+</style>
+
+</body>
+</html>

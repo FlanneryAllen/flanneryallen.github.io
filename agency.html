@@ -1,0 +1,518 @@
+<!-- ===== PASTE EVERYTHING BELOW INTO A SQUARESPACE CODE BLOCK ===== -->
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* All styles scoped under .julie-page so they never leak into the rest of the site */
+
+  .julie-page {
+    --bg: #d4d2cc;
+    --bg-2: #cbcac3;
+    --bg-3: #c3c1ba;
+    --paper-fiber: rgba(255,255,255,0.045);
+    --text: #53504b;
+    --text-soft: #716d67;
+    --text-faint: rgba(83,80,75,0.54);
+    --magenta: #ff4a96;
+    --magenta-deep: #ea3d86;
+    --magenta-soft: rgba(255,74,150,0.14);
+    --line: rgba(255,255,255,0.16);
+    --card-line: rgba(255,255,255,0.12);
+    --display: 'Archivo Black', Arial Black, sans-serif;
+    --body: 'Inter', Arial, sans-serif;
+    --max: 1220px;
+    --ease: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: var(--body);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 35%),
+      radial-gradient(circle at 80% 10%, rgba(255,255,255,0.04), transparent 28%),
+      radial-gradient(circle at 60% 80%, rgba(255,255,255,0.035), transparent 32%),
+      repeating-linear-gradient(0deg, transparent 0 39px, var(--paper-fiber) 39px 40px),
+      repeating-linear-gradient(90deg, transparent 0 59px, rgba(255,255,255,0.018) 59px 60px),
+      linear-gradient(to bottom, var(--bg), var(--bg-2) 52%, var(--bg-3));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .julie-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 8px 8px;
+    mix-blend-mode: soft-light;
+    z-index: 1;
+  }
+
+  .julie-page *,
+  .julie-page *::before,
+  .julie-page *::after { box-sizing: border-box; }
+
+  .julie-page a { color: inherit; text-decoration: none; }
+
+  .julie-page .wrap {
+    width: min(calc(100% - 30px), var(--max));
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ========== HERO ========== */
+  .julie-page .hero {
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+
+  .julie-page .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 32px;
+    transition: color var(--ease), transform var(--ease);
+  }
+  .julie-page .back-link:hover { color: var(--magenta); transform: translateX(-3px); }
+
+  .julie-page .page-label {
+    color: var(--magenta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .julie-page .hero-title {
+    font-family: var(--display);
+    color: var(--magenta);
+    font-size: clamp(32px, 6vw, 72px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .julie-page .hero-title .dot { color: rgba(255,74,150,0.45); margin: 0 0.04em; }
+  .julie-page .hero-title .comma { color: rgba(255,74,150,0.45); }
+
+  .julie-page .hero-sub {
+    margin-top: 22px;
+    font-family: var(--display);
+    font-size: clamp(16px, 2.2vw, 26px);
+    color: rgba(83,80,75,0.7);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .julie-page .page-desc {
+    margin-top: 26px;
+    max-width: 640px;
+    color: var(--text-soft);
+    font-size: clamp(15px, 1.8vw, 19px);
+    line-height: 1.7;
+  }
+
+  .julie-page .page-desc strong { color: var(--text); font-weight: 600; }
+
+  /* ========== SHOPS + CLIENTS ========== */
+  .julie-page .era {
+    padding: 56px 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .julie-page .era-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .julie-page .era-col-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 16px;
+  }
+
+  .julie-page .era-list {
+    font-family: var(--display);
+    font-size: clamp(20px, 2.4vw, 30px);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--text);
+    word-wrap: break-word;
+    hyphens: none;
+  }
+
+  .julie-page .era-list-sep {
+    color: var(--magenta);
+    margin: 0 0.2em;
+  }
+
+  /* ========== FEATURED: JCPENNEY ========== */
+  .julie-page .featured {
+    padding: 40px 0 56px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+
+  .julie-page .featured-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 14px;
+  }
+
+  .julie-page .featured-title {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin: 0 0 16px;
+  }
+
+  .julie-page .featured-subhead {
+    font-size: clamp(15px, 1.7vw, 18px);
+    color: var(--text);
+    line-height: 1.5;
+    max-width: 56ch;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .julie-page .featured-video {
+    margin-bottom: 14px;
+  }
+
+  .julie-page .video-tile {
+    background: rgba(255,255,255,0.05);
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .julie-page .video-tile iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .julie-page .link-row {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid var(--card-line);
+    background: rgba(255,255,255,0.04);
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .julie-page .link-row-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* ========== ZING ========== */
+  .julie-page .zing {
+    padding: 40px 0 56px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+
+  .julie-page .zing-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 14px;
+  }
+
+  .julie-page .zing-title {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin: 0 0 16px;
+  }
+
+  .julie-page .zing-subhead {
+    font-size: clamp(15px, 1.7vw, 18px);
+    color: var(--text);
+    line-height: 1.5;
+    max-width: 60ch;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .julie-page .zing-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--card-line);
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .julie-page .zing-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .julie-page .zing-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--card-line);
+    border: 1px solid var(--card-line);
+    margin-bottom: 20px;
+  }
+
+  .julie-page .zing-metric {
+    background: rgba(255,255,255,0.05);
+    padding: 22px 20px;
+  }
+
+  .julie-page .zing-metric-num {
+    font-family: var(--display);
+    font-size: clamp(24px, 3.2vw, 34px);
+    color: var(--magenta);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .julie-page .zing-metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text-soft);
+    line-height: 1.4;
+  }
+
+  /* ========== THROUGH-LINE ========== */
+  .julie-page .through-line {
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin: 40px 0 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .julie-page .through-label {
+    color: var(--magenta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .julie-page .through-title {
+    font-family: var(--display);
+    font-size: clamp(30px, 4.6vw, 58px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+    max-width: 20ch;
+    margin: 0 0 28px;
+  }
+
+  .julie-page .through-body {
+    font-size: clamp(15px, 1.6vw, 17px);
+    line-height: 1.75;
+    color: var(--text-soft);
+    max-width: 640px;
+    margin-bottom: 14px;
+  }
+
+  .julie-page .through-body strong { color: var(--text); font-weight: 600; }
+
+  .julie-page .cs-link {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--magenta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border: 1px solid rgba(255,74,150,0.35);
+    border-radius: 999px;
+    transition: background var(--ease), color var(--ease), border-color var(--ease);
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .julie-page .cs-link:hover {
+    background: var(--magenta);
+    color: #ffffff;
+    border-color: var(--magenta);
+  }
+
+  /* ========== FOOTER ========== */
+  .julie-page .footer {
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .julie-page .footer-note {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ========== MOBILE ========== */
+  @media (max-width: 760px) {
+    .julie-page .wrap { width: 100%; padding: 0 14px; }
+    .julie-page .hero { padding-top: 36px; }
+
+    .julie-page .era-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .julie-page .link-row {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 14px 18px;
+      gap: 10px;
+    }
+  }
+</style>
+
+<div class="julie-page">
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <a href="/work" class="back-link">&larr; Back to the work</a>
+      <div class="page-label">Agency Life</div>
+      <h1 class="hero-title">The language of ideas<span class="dot">.</span></h1>
+      <div class="hero-sub">Agencies you know. Clients you've used. Then my own shop.</div>
+      <p class="page-desc">
+        Copywriting and creative direction across fulltime and contract roles at some of the industry's most respected shops. Then a branding studio I founded and ran to the top twenty-five in the country. <strong>Everything I've built since uses the same muscle, just applied to technology.</strong>
+      </p>
+    </section>
+
+    <!-- SHOPS + CLIENTS -->
+    <section class="era">
+      <div class="era-grid">
+        <div>
+          <div class="era-col-label">The Shops</div>
+          <div class="era-list">
+            Y&amp;R<span class="era-list-sep">&middot;</span>AKQA<span class="era-list-sep">&middot;</span>DDB<span class="era-list-sep">&middot;</span>Goodby<br>Doner<span class="era-list-sep">&middot;</span>Riney<span class="era-list-sep">&middot;</span>Apple Design Studio
+          </div>
+        </div>
+        <div>
+          <div class="era-col-label">The Clients</div>
+          <div class="era-list">
+            Apple<span class="era-list-sep">&middot;</span>Land Rover<span class="era-list-sep">&middot;</span>Mattel<br>Jaguar<span class="era-list-sep">&middot;</span>Lincoln<span class="era-list-sep">&middot;</span>JCPenney<br>CNET<span class="era-list-sep">&middot;</span>Palm
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED: JCPENNEY OSCARS -->
+    <section class="featured">
+      <div class="featured-label">Featured Campaign</div>
+      <h2 class="featured-title">JCPenney at the Oscars.</h2>
+      <p class="featured-subhead">Written and produced for the Academy Awards broadcast. One of the most expensive ad windows on network television.</p>
+
+      <div class="featured-video">
+        <div class="video-tile">
+          <iframe src="https://www.youtube.com/embed/FA213hyHm0Y?si=popdOk5-jK58Gq3r" title="JCPenney Oscars Spot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="link-row">
+        <span class="link-row-label">Written for the Academy Awards broadcast</span>
+        <a href="https://www.flanneryallen.com/jcpenney" target="_blank" rel="noopener" class="cs-link">View Campaign &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ZING -->
+    <section class="zing">
+      <div class="zing-label">Founded &amp; Ran</div>
+      <h2 class="zing-title">Then I opened Zing.</h2>
+      <p class="zing-subhead">A branding studio that turned into a retail destination. Transformed a rundown Firestone building into one of the top gift and home stores in America.</p>
+
+      <div class="zing-hero">
+        <img src="https://images.squarespace-cdn.com/content/v1/57a22ff1bebafb39c21fed5b/1479311396655-LXCN3TYF2UZBU3JVMQCI/image-asset.jpeg" alt="Zing storefront interior with curated branding, design products, and lifestyle retail displays" />
+      </div>
+
+      <div class="zing-metrics">
+        <div class="zing-metric">
+          <div class="zing-metric-num">$2M</div>
+          <div class="zing-metric-label">Annual revenue at peak</div>
+        </div>
+        <div class="zing-metric">
+          <div class="zing-metric-num">20+</div>
+          <div class="zing-metric-label">Team hired and managed</div>
+        </div>
+        <div class="zing-metric">
+          <div class="zing-metric-num">Top 25</div>
+          <div class="zing-metric-label">Gifted Retailers in America</div>
+        </div>
+      </div>
+
+      <div class="link-row">
+        <span class="link-row-label">Founder &amp; Creative Director</span>
+        <a href="https://www.flanneryallen.com/zing" target="_blank" rel="noopener" class="cs-link">View Case Study &rarr;</a>
+      </div>
+    </section>
+
+    <!-- THROUGH-LINE -->
+    <section class="through-line">
+      <div class="through-label">The Through-line</div>
+      <h2 class="through-title">The brief arrives. You find the idea. You pitch it. You revise it. You ship it. That loop doesn't leave you.</h2>
+      <p class="through-body">
+        A patent is a brief with a longer deadline. A startup is a brief you wrote yourself. The idea is still the job.
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="footer">
+      <span class="footer-note">Julie Flannery Allen &middot; flanneryallen.com</span>
+    </section>
+
+  </div>
+</div>
+
+<!-- ===== END PASTE ===== -->
