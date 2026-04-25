@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Go From Mentee to Inventor — Flannery Allen</title>
+
+<!-- Security Headers -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none'; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #d4d2cc;
+    --bg-2: #cbcac3;
+    --bg-3: #c3c1ba;
+    --paper-fiber: rgba(255,255,255,0.045);
+    --text: #53504b;
+    --text-soft: #716d67;
+    --text-faint: rgba(83,80,75,0.54);
+    --ghost: rgba(255,255,255,0.28);
+    --ghost-2: rgba(255,255,255,0.18);
+    --ghost-3: rgba(255,255,255,0.1);
+    --magenta: #ff4a96;
+    --magenta-deep: #ea3d86;
+    --magenta-soft: rgba(255,74,150,0.14);
+    --line: rgba(255,255,255,0.16);
+    --card-line: rgba(255,255,255,0.12);
+    --display: 'Archivo Black', Arial Black, sans-serif;
+    --body: 'Inter', Arial, sans-serif;
+    --max: 1220px;
+    --ease: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family: var(--body);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 35%),
+      radial-gradient(circle at 80% 10%, rgba(255,255,255,0.04), transparent 28%),
+      radial-gradient(circle at 60% 80%, rgba(255,255,255,0.035), transparent 32%),
+      repeating-linear-gradient(0deg, transparent 0 39px, var(--paper-fiber) 39px 40px),
+      repeating-linear-gradient(90deg, transparent 0 59px, rgba(255,255,255,0.018) 59px 60px),
+      linear-gradient(to bottom, var(--bg), var(--bg-2) 52%, var(--bg-3));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 8px 8px;
+    mix-blend-mode: soft-light;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .wrap {
+    width: min(calc(100% - 30px), var(--max));
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 32px;
+    transition: color var(--ease), transform var(--ease);
+  }
+  .back-link:hover { color: var(--magenta); transform: translateX(-3px); }
+
+  .page-label {
+    color: var(--magenta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: var(--display);
+    color: var(--text);
+    font-size: clamp(32px, 6vw, 72px);
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(18px, 2.2vw, 24px);
+    color: var(--text-soft);
+    line-height: 1.35;
+    max-width: 780px;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .hero-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hero-meta span::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--magenta);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  /* ========== ARTICLE ========== */
+  .article {
+    padding: 56px 0 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .article-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .article-section {
+    margin-bottom: 48px;
+  }
+
+  .article-section-title {
+    font-family: var(--display);
+    font-size: clamp(24px, 3.5vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 24px;
+  }
+
+  .article-text {
+    font-size: clamp(16px, 1.8vw, 18px);
+    line-height: 1.75;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .article-text + .article-text {
+    margin-top: -4px;
+  }
+
+  .article-quote {
+    font-size: clamp(18px, 2vw, 20px);
+    line-height: 1.5;
+    color: var(--text);
+    font-weight: 500;
+    padding: 24px 0 24px 28px;
+    border-left: 3px solid var(--magenta);
+    margin: 32px 0;
+    font-style: italic;
+    background: linear-gradient(90deg, rgba(255,74,150,0.06), transparent 100px);
+  }
+
+  .article-opener {
+    font-size: clamp(20px, 2.2vw, 24px);
+    line-height: 1.5;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+
+  .article-opener::first-letter {
+    font-family: var(--display);
+    font-size: 3.2em;
+    line-height: 0.85;
+    float: left;
+    margin-right: 8px;
+    color: var(--magenta);
+    text-transform: uppercase;
+  }
+
+  /* ========== WIN CARD ========== */
+  .win-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--card-line);
+    padding: 32px;
+    margin: 40px 0;
+    position: relative;
+  }
+
+  .win-card::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background: var(--magenta);
+  }
+
+  .win-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 16px;
+  }
+
+  .win-card-title {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .win-card-subtitle {
+    font-size: 18px;
+    color: var(--text-soft);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .win-card-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-line);
+  }
+
+  .win-card-detail {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .win-card-detail strong {
+    display: block;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  /* ========== Q&A SECTION ========== */
+  .qa-section {
+    margin: 48px 0;
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid var(--card-line);
+  }
+
+  .qa-question {
+    font-family: var(--display);
+    font-size: clamp(20px, 2.5vw, 24px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 16px;
+  }
+
+  .qa-answer {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* ========== TIPS LIST ========== */
+  .tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 32px 0;
+  }
+
+  .tips-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .tips-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--magenta);
+    font-weight: 700;
+  }
+
+  /* ========== PULLOUT BOX ========== */
+  .article-pullout {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--card-line);
+    padding: 28px 24px;
+    margin: 40px -12px;
+    position: relative;
+  }
+
+  .article-pullout::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background: var(--magenta);
+  }
+
+  .article-pullout-title {
+    font-family: var(--display);
+    font-size: clamp(20px, 2.8vw, 28px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 16px;
+  }
+
+  .article-pullout-text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+
+  /* ========== FOOTER ========== */
+  .article-footer {
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .footer-link {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--magenta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border: 1px solid rgba(255,74,150,0.35);
+    border-radius: 999px;
+    transition: background var(--ease), color var(--ease), border-color var(--ease);
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .footer-link:hover {
+    background: var(--magenta);
+    color: #ffffff;
+    border-color: var(--magenta);
+  }
+
+  .footer-note {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ========== MOBILE ========== */
+  @media (max-width: 760px) {
+    .wrap { width: 100%; padding: 0 16px; }
+    .hero { padding-top: 36px; }
+
+    .article-content {
+      padding: 0;
+    }
+
+    .win-card,
+    .qa-section {
+      margin-left: -16px;
+      margin-right: -16px;
+      border-left: none;
+      border-right: none;
+    }
+
+    .article-pullout {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+
+    .article-quote {
+      padding-left: 20px;
+      margin-left: -4px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <a href="index.html" class="back-link">&larr; Back to the work</a>
+      <div class="page-label">Innovation Story &middot; Patents & Mentorship</div>
+      <h1 class="hero-title">How to Go From Mentee to Inventor</h1>
+      <p class="hero-subtitle">The journey from receiving mentorship to creating patented innovations at Cisco — and what I learned along the way.</p>
+      <div class="hero-meta">
+        <span>By Julie Allen</span>
+        <span>Published Feb 18, 2021</span>
+        <span>Cisco Employee Connection</span>
+      </div>
+    </section>
+
+    <!-- ARTICLE -->
+    <section class="article">
+      <div class="article-content">
+
+        <!-- Opening -->
+        <div class="article-section">
+          <p class="article-opener">What's the best way to learn to ride a bicycle? Watch videos? Read books about it? While both might be helpful, you can't learn to ride until you get on the bike. The same is true when it comes to inventing.</p>
+
+          <p class="article-text">You can go ahead and watch TED Talks and read inspiring biographies. But when you're ready to give inventing a spin and experience a few scrapes and challenges the patent process yields, perhaps the Women's Inventor Network at Cisco (WIN) can help.</p>
+        </div>
+
+        <!-- WIN Program Section -->
+        <div class="win-card">
+          <div class="win-card-label">The Program That Changed Everything</div>
+          <h2 class="win-card-title">WIN-FY21c1, Team 20</h2>
+          <p class="win-card-subtitle">"Not the most innovative name. But luckily, this wasn't a sign my team's lack of imagination. Not even close."</p>
+
+          <div class="win-card-details">
+            <div class="win-card-detail">
+              <strong>The Challenge:</strong>
+              Selected Collaboration as the area to focus on innovation
+            </div>
+            <div class="win-card-detail">
+              <strong>The Team:</strong>
+              Pascale Delaunay, Gonzalo Salgueiro, Risha Kalra, Avindan Muralidharan, and Julie Allen
+            </div>
+            <div class="win-card-detail">
+              <strong>The Outcome:</strong>
+              "Did we solve transportation for collaboration? No. Did we come up with fresh inventions that could be useful for Cisco? Yes."
+            </div>
+          </div>
+        </div>
+
+        <!-- The Process Section -->
+        <div class="article-section">
+          <h2 class="article-section-title">What We're Working On Is Top Secret — For Now</h2>
+
+          <p class="article-text">I was one of the 140 aspiring inventors (mentees) across nine organizations and 11 countries that took part in WIN's pilot program. When each of us signed up for the program, we selected Collaboration as the area we wanted to focus on.</p>
+
+          <p class="article-text">Did we solve transportation for collaboration? No. Did we come up with some fresh inventions that could be useful for Cisco? Yes. What we're working on is top secret – for now.</p>
+
+          <p class="article-text">But I am happy to share some insights and advice I found useful. I sat down with my team's mentor, Distinguished Engineer Gonzalo Salgueiro, to discuss our WIN experience and brainstorming in general.</p>
+        </div>
+
+        <!-- Q&A Section 1 -->
+        <div class="qa-section">
+          <h3 class="qa-question">Q: The WIN program has an emphasis on creating diverse teams. What value does that bring to the innovation process?</h3>
+          <div class="qa-answer">
+            <p><strong>Gonzalo:</strong> Diversity at the heart of innovation. Diverse perspectives, experiences, and ideas are the ingredients to successful innovation. Our WIN team is a perfect example of this. We have a fantastic mix of genders, nationalities, languages, cultures, etc. We have folks from all over the world — Sales, Technical Communications, and Engineering.</p>
+            <p style="margin-top: 16px;">At every meeting, I got to witness how this diverse mix triggers great discussions as everyone brings their different perspectives. Our interactions are much more multidimensional, rich, and go off in interesting and unexpected directions. Which at the end of the day – for innovation – has to be the fuel that makes it all work. I think that's what you're after.</p>
+          </div>
+        </div>
+
+        <!-- Q&A Section 2 -->
+        <div class="qa-section">
+          <h3 class="qa-question">Q: I definitely do. This program has been a very positive experience for me. What do you think makes this program format stand out from others?</h3>
+          <div class="qa-answer">
+            <p><strong>Gonzalo:</strong> I think what makes it different – what really makes it jump out – is everyone was expected to get their hands dirty.</p>
+            <p style="margin-top: 16px;">The theme of the program is active involvement. And we knew you're all incredibly capable individuals, so show us. Go ahead. Give it a try and produce an invention. We're here if you get stuck.</p>
+            <p style="margin-top: 16px;">I have a bunch of kids, and I can tell you that it's one thing to go tell somebody to "go play." It's an entirely different thing to go grab someone by the hand and go play with them. This program was the latter.</p>
+          </div>
+        </div>
+
+        <!-- Mentoring Section -->
+        <div class="article-section">
+          <h2 class="article-section-title">What Does He Enjoy About Mentoring His First WIN Team?</h2>
+
+          <div class="article-quote">
+            "Engineers don't have a patent on coming up with ideas."
+          </div>
+
+          <p class="article-text">No one does. One of my biggest takeaways from being part of the WIN pilot program is that inventing is as much about attitude as it is about algorithms.</p>
+
+          <p class="article-text">Thanks to my WIN team's talent and hard work, I can now say I am an inventor. Times two. Wow, it feels amazing to call myself that!</p>
+
+          <p class="article-text">The WIN program believed we could do it. Gonzalo believed we could do it. Eventually, we did too. Just like I could tell you how exhilarating it feels to finally learn to ride a bike, you won't really understand unless you're the one pedaling, steering the handlebars, and trusting your instincts.</p>
+
+          <p class="article-text">So, if you have an inventor's mindset and you've been itching to give inventing a try — everything you need to know is in the sidebar.</p>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="article-section">
+          <h2 class="article-section-title">Q: Speaking of deliverables. Any tips for getting the ball rolling for coming up with inventions?</h3>
+
+          <div class="qa-answer" style="background: transparent; border: none; padding: 0;">
+            <p><strong>Gonzalo:</strong> Everyone has their tricks and go-to moves, but one place to look, in my opinion, is at the intersections of different technologies. For example, our team was assigned Collaboration, but we focused on the interfaces of Collaboration and Security.</p>
+
+            <p style="margin-top: 16px;">Another tip would be to look at what problems the industry is focused on solving, such as new working groups in different standard bodies. For instance, I suggested the team look at the Internet Engineering Task Force (IETF) to take notice of the areas where the new work is being done.</p>
+
+            <p style="margin-top: 16px;">Also, as inventors, we want to look at the horizon two to three years out. What's coming? What's important? What's hot?</p>
+          </div>
+        </div>
+
+        <!-- Q&A Section 3 -->
+        <div class="qa-section">
+          <h3 class="qa-question">Q: Any other advice for those who are just getting started with inventing and the patent process?</h3>
+          <div class="qa-answer">
+            <p><strong>Gonzalo:</strong> When I first started, the notion of a patent seemed so far off. So academic and untouchable.</p>
+            <p style="margin-top: 16px;">I think we do ourselves a disservice thinking it's only for senior-level people of our engineering staff. The reality is that once you understand the process, it takes a good idea. And the truth is everybody has good ideas. Along with that good idea, you also need a certain tenacity to continue to strategically mold and improve the idea in the face of constructive criticism, prior art, value to Cisco, etc.</p>
+          </div>
+        </div>
+
+        <!-- More Ways Section -->
+        <div class="article-section">
+          <h2 class="article-section-title">More Ways to Innovate at Cisco</h2>
+
+          <ul class="tips-list">
+            <li><strong>Bold Beta Idea Submissions:</strong> Do you have an idea that could transform Cisco? Team up or individually share your ideas. Check out the submission guidelines for more information.</li>
+
+            <li><strong>Wireless and Cellular Innovation FY21:</strong> Deadline to submit a Brief Invention Disclosure, February 22 (11:59:59 p.m. PST). But if you miss it, you can submit a complete patent entry at Cisco Patent Online anytime.</li>
+
+            <li><strong>Information Session:</strong> February 22, 9:30 a.m. PST (Complete initial enrollment online to learn more.)</li>
+
+            <li><strong>Close of enrollment for the next cohort:</strong> February 26. The next cohort begins mid-March.</li>
+          </ul>
+        </div>
+
+        <!-- Closing Section -->
+        <div class="article-pullout">
+          <h3 class="article-pullout-title">What Does He Wish He Knew Sooner?</h3>
+          <p class="article-pullout-text">"Engineers don't have a patent on coming up with ideas." No one does. One of my biggest takeaways: inventing is as much about attitude as it is about algorithms. Thanks to my WIN team's talent and hard work, I can now say I am an inventor. Times two. It feels amazing to call myself that!</p>
+        </div>
+
+        <!-- Related Links -->
+        <div class="article-section">
+          <h2 class="article-section-title">Related Links</h2>
+          <ul class="tips-list">
+            <li>Women's Inventor Network SharePoint</li>
+            <li>Intrapreneur + Internal Entrepreneur: Want to be one?</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="article-footer">
+      <div class="footer-links">
+        <a href="https://newsroom.cisco.com" target="_blank" rel="noopener noreferrer" class="footer-link">Read more on Cisco Newsroom &rarr;</a>
+        <a href="comms.html" class="footer-link">View Comms Work &rarr;</a>
+      </div>
+      <span class="footer-note">Julie Flannery Allen &middot; flanneryallen.com</span>
+    </section>
+
+  </div>
+</div>
+</body>
+</html>
