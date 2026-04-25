@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Story Behind Our Latest Two-Ton Webex Device — Flannery Allen</title>
+
+<!-- Security Headers -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none'; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #d4d2cc;
+    --bg-2: #cbcac3;
+    --bg-3: #c3c1ba;
+    --paper-fiber: rgba(255,255,255,0.045);
+    --text: #53504b;
+    --text-soft: #716d67;
+    --text-faint: rgba(83,80,75,0.54);
+    --ghost: rgba(255,255,255,0.28);
+    --ghost-2: rgba(255,255,255,0.18);
+    --ghost-3: rgba(255,255,255,0.1);
+    --magenta: #ff4a96;
+    --magenta-deep: #ea3d86;
+    --magenta-soft: rgba(255,74,150,0.14);
+    --line: rgba(255,255,255,0.16);
+    --card-line: rgba(255,255,255,0.12);
+    --display: 'Archivo Black', Arial Black, sans-serif;
+    --body: 'Inter', Arial, sans-serif;
+    --max: 1220px;
+    --ease: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family: var(--body);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 35%),
+      radial-gradient(circle at 80% 10%, rgba(255,255,255,0.04), transparent 28%),
+      radial-gradient(circle at 60% 80%, rgba(255,255,255,0.035), transparent 32%),
+      repeating-linear-gradient(0deg, transparent 0 39px, var(--paper-fiber) 39px 40px),
+      repeating-linear-gradient(90deg, transparent 0 59px, rgba(255,255,255,0.018) 59px 60px),
+      linear-gradient(to bottom, var(--bg), var(--bg-2) 52%, var(--bg-3));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 8px 8px;
+    mix-blend-mode: soft-light;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .wrap {
+    width: min(calc(100% - 30px), var(--max));
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 2;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 32px;
+    transition: color var(--ease), transform var(--ease);
+  }
+  .back-link:hover { color: var(--magenta); transform: translateX(-3px); }
+
+  .page-label {
+    color: var(--magenta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: var(--display);
+    color: var(--text);
+    font-size: clamp(32px, 6vw, 72px);
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(18px, 2.2vw, 24px);
+    color: var(--text-soft);
+    line-height: 1.35;
+    max-width: 780px;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .hero-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hero-meta span::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--magenta);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  /* ========== ARTICLE ========== */
+  .article {
+    padding: 56px 0 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .article-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .article-section {
+    margin-bottom: 48px;
+  }
+
+  .article-section-title {
+    font-family: var(--display);
+    font-size: clamp(24px, 3.5vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 24px;
+  }
+
+  .article-text {
+    font-size: clamp(16px, 1.8vw, 18px);
+    line-height: 1.75;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .article-text + .article-text {
+    margin-top: -4px;
+  }
+
+  .article-quote {
+    font-size: clamp(18px, 2vw, 20px);
+    line-height: 1.5;
+    color: var(--text);
+    font-weight: 500;
+    padding: 24px 0 24px 28px;
+    border-left: 3px solid var(--magenta);
+    margin: 32px 0;
+    font-style: italic;
+    background: linear-gradient(90deg, rgba(255,74,150,0.06), transparent 100px);
+  }
+
+  .article-opener {
+    font-size: clamp(20px, 2.2vw, 24px);
+    line-height: 1.5;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+
+  .article-opener::first-letter {
+    font-family: var(--display);
+    font-size: 3.2em;
+    line-height: 0.85;
+    float: left;
+    margin-right: 8px;
+    color: var(--magenta);
+    text-transform: uppercase;
+  }
+
+  /* ========== IMAGE BLOCKS ========== */
+  .article-image {
+    margin: 40px -20px;
+    border: 1px solid var(--card-line);
+    background: rgba(255,255,255,0.05);
+    overflow: hidden;
+  }
+
+  .article-image-container {
+    width: 100%;
+    height: 420px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+      rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .article-image-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px) 0 0 / 100% 34px,
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 34px 100%;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .article-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+
+  .article-image-caption {
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.06);
+    border-top: 1px solid var(--card-line);
+    font-size: 13px;
+    color: var(--text-soft);
+    font-style: italic;
+  }
+
+  .placeholder-text {
+    font-size: 11px;
+    color: rgba(83,80,75,0.45);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  /* ========== PULLOUT BOX ========== */
+  .article-pullout {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--card-line);
+    padding: 28px 24px;
+    margin: 40px -12px;
+    position: relative;
+  }
+
+  .article-pullout::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background: var(--magenta);
+  }
+
+  .article-pullout-title {
+    font-family: var(--display);
+    font-size: clamp(20px, 2.8vw, 28px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 16px;
+  }
+
+  .article-pullout-text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+
+  /* ========== FOOTER ========== */
+  .article-footer {
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-cta {
+    margin-bottom: 32px;
+  }
+
+  .footer-link {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--magenta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border: 1px solid rgba(255,74,150,0.35);
+    border-radius: 999px;
+    transition: background var(--ease), color var(--ease), border-color var(--ease);
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .footer-link:hover {
+    background: var(--magenta);
+    color: #ffffff;
+    border-color: var(--magenta);
+  }
+
+  .footer-note {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ========== MOBILE ========== */
+  @media (max-width: 760px) {
+    .wrap { width: 100%; padding: 0 16px; }
+    .hero { padding-top: 36px; }
+
+    .article-content {
+      padding: 0;
+    }
+
+    .article-image {
+      margin-left: -16px;
+      margin-right: -16px;
+      border-left: none;
+      border-right: none;
+    }
+
+    .article-image-container {
+      height: auto;
+      min-height: 260px;
+    }
+
+    .article-pullout {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+
+    .article-quote {
+      padding-left: 20px;
+      margin-left: -4px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <a href="index.html" class="back-link">&larr; Back to the work</a>
+      <div class="page-label">Product Story &middot; Innovation</div>
+      <h1 class="hero-title">The Story Behind Our Latest Two-Ton Webex Device</h1>
+      <p class="hero-subtitle">Hazim Dahir shares how thinking about your car as a device has inspired innovation for Ford and the future of connected cars.</p>
+      <div class="hero-meta">
+        <span>By Julie Allen</span>
+        <span>Cisco Newsroom</span>
+        <span>Product Innovation</span>
+      </div>
+    </section>
+
+    <!-- ARTICLE -->
+    <section class="article">
+      <div class="article-content">
+
+        <!-- Hero Image -->
+        <div class="article-image" style="margin-top: 0;">
+          <div class="article-image-container" style="height: 480px;">
+            <img src="webex-images/ford-mustang-webex.png" alt="Ford Mustang Mach-E displaying Webex capability" />
+          </div>
+          <div class="article-image-caption">Ford Mustang Mach-E showcasing in-vehicle Webex collaboration capabilities.</div>
+        </div>
+
+        <!-- Opening -->
+        <div class="article-section">
+          <p class="article-opener">"My first car was a 1984 Accord," recalls Hazim with a nostalgic expression. Cars have always fascinated Distinguished Engineer Hazim Dahir, particularly after he began conceptualizing the vehicle as a technological device several years ago, coinciding with Ford's announcement about transitioning to a new chipset.</p>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="article-section">
+          <h2 class="article-section-title">Cisco's Move from IT Partner to Inside the Vehicle</h2>
+          <p class="article-text">Ford standardized on Google for their infotainment system and required an in-car collaboration partner. Ray Cushman, Ford Client Director, recognized an opportunity to position Cisco inside vehicles.</p>
+          <p class="article-text">Despite Ford's existing Microsoft relationship and conversations with Zoom, the company's software-defined vehicle strategy required Cisco's distinctive capabilities in connectivity, security, and user experience. Webex became Cisco's entry point.</p>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="article-section">
+          <h2 class="article-section-title">Shifting Into a New Gear</h2>
+          <p class="article-text">Ray Cushman and Hazim Dahir collaborated on the Ford account. Hazim's IoT expertise and architectural experience made him the ideal technical leader.</p>
+          <div class="article-quote">
+            "When you relate 'your car as a device' to smartphone apps, success seems straightforward. However, examining the underlying complexity reveals substantial obstacles."
+          </div>
+          <p class="article-text">Key considerations included simultaneous vehicle interior and exterior dynamics, plus real-time processing for highway-speed operations.</p>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="article-section">
+          <h2 class="article-section-title">Innovating the Hybrid Way</h2>
+          <p class="article-text">Android Automotive's early-stage development lacked necessary Webex support, requiring Cisco and Ford engineers to develop additional features. The team utilized a "Car in a Box" development toolkit featuring Qualcomm chipsets matching Ford's specifications. Hazim established an emulator in his home lab.</p>
+
+          <div class="article-image">
+            <div class="article-image-container">
+              <img src="webex-images/hazim-henry-ford-museum.png" alt="Hazim at the Henry Ford Museum displaying the first live call using an emulator" />
+            </div>
+            <div class="article-image-caption">Hazim at the Henry Ford Museum displaying the first live call using an emulator.</div>
+          </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="article-section">
+          <h2 class="article-section-title">Creating Webex on Wheels</h2>
+          <p class="article-text">Security and privacy presented complex challenges. Hazim poses critical questions:</p>
+          <div class="article-quote">
+            "How does the car know it's you in the vehicle and not your husband? Showing him all of your meetings instead of his? Or imagine if this is a ride-sharing/car-pooling scenario and someone takes over the car after you leave it."
+          </div>
+          <p class="article-text">The team needed to resolve identity verification: "We knew what identity issues to solve for, but who owns what? Is the identity resolved at the Android level and passed on to Webex? Do we do it at both levels and slow down the experience by adding multiple steps? How far do we take multi-factor authentication? Login/logoff?"</p>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="article-section">
+          <h2 class="article-section-title">The Regulations and Safety Challenge</h2>
+          <p class="article-text">Safety regulations required careful consideration. Hazim notes: "We need to think about things related to distraction and the legal aspect of things. If you go from park to drive, what happens? The cameras have to shut down. The videos have to shut down. You must go on audio only."</p>
+          <p class="article-text">Transitions required seamless execution. Hazim emphasizes: "It cannot be like when you leave your car today, and you need to rejoin feeling like you lost 20 seconds of the conversation. Similarly, we have to consider what happens when the driver arrives to their destination and wants to exit the vehicle. Do they have to exit the call too?"</p>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="article-section">
+          <h2 class="article-section-title">Worthy of the Webex Name</h2>
+          <p class="article-text">The team successfully engineered configurable cameras, microphones, speakers, and displays supporting single users or multiple vehicle occupants, all while maintaining safety standards.</p>
+
+          <div class="article-image">
+            <div class="article-image-container">
+              <img src="webex-images/concept-car-team.png" alt="Inside the concept car, team demonstrating Webex innovations" />
+            </div>
+            <div class="article-image-caption">Inside the concept car, Hazim explains innovations to Abhay Kulkarni, SVP Webex, while Javed Khan, SVP/GM Collaboration and Brad Bonin, VP Collaboration Sales, capture the moment.</div>
+          </div>
+
+          <p class="article-text">At Cisco Live, Ford President and CEO Jim Farley highlighted Webex's potential for unlocking productivity for drivers and enabling over-the-air software updates after vehicle delivery.</p>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="article-section">
+          <h2 class="article-section-title">Webex: The Platform to Bring Connectivity Together</h2>
+          <div class="article-quote">
+            "We're not looking at Webex from the perspective that you and I are using now, but more as a platform that has the ability to host a variety of applications."
+          </div>
+          <p class="article-text">Describing future possibilities, Hazim envisions: "Imagine, you park your car. Your car sits on top of a charger. Through induction, your car starts charging. Now the charger has to identify you. Identify your credit card. Bill it. Identify the type of car you have so it doesn't overcharge the battery. There's a lot of intelligence that comes into it."</p>
+          <p class="article-text">Car-sharing, commercial fleet applications, and undisclosed possibilities remain under development.</p>
+
+          <div class="article-image">
+            <div class="article-image-container">
+              <img src="webex-images/cisco-live-2022-team.png" alt="Team at Cisco Live 2022" />
+            </div>
+            <div class="article-image-caption">Mithun Baphana, Product Manager Webex, with Hazim and Abhay Kulkarni, SVP Webex and primary project sponsor, at Cisco Live 2022.</div>
+          </div>
+        </div>
+
+        <!-- Closing Section -->
+        <div class="article-section">
+          <h2 class="article-section-title">Applications: Get Out of Our Dreams, Get Into Our Cars</h2>
+          <p class="article-text">Technology's purpose evolves constantly. Soon people may say: "Remember when a car's purpose was transportation and Webex meant video calls?"</p>
+          <p class="article-text">The team continuously asks: "What else can we do with the car to help people live their lives?"</p>
+        </div>
+
+        <!-- Pullout Box -->
+        <div class="article-pullout">
+          <h3 class="article-pullout-title">The Future is Connected</h3>
+          <p class="article-pullout-text">This story represents the intersection of automotive innovation and collaboration technology — where a two-ton vehicle becomes the latest Webex device, transforming how we think about productivity, connectivity, and the future of transportation.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="article-footer">
+      <div class="footer-cta">
+        <a href="https://newsroom.cisco.com" target="_blank" rel="noopener noreferrer" class="footer-link">Read more on Cisco Newsroom &rarr;</a>
+      </div>
+      <span class="footer-note">Julie Flannery Allen &middot; flanneryallen.com</span>
+    </section>
+
+  </div>
+</div>
+</body>
+</html>
