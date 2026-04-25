@@ -345,6 +345,179 @@
     border: none;
   }
 
+  /* AI Experiments Cards */
+  .tl-artifact.ai-experiments {
+    margin-top: 20px;
+  }
+
+  .experiment-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .experiment-card {
+    background: linear-gradient(145deg, rgba(250,248,245,0.95), rgba(245,242,237,0.95));
+    border: 1px solid rgba(160,148,135,0.2);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.05),
+      inset 0 1px 2px rgba(255,255,255,0.4);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .card-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #9c8a76;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .card-tool {
+    font-size: 10px;
+    background: rgba(225,213,200,0.5);
+    color: #7a6854;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2c2826;
+    margin: 0 0 8px 0;
+    font-family: "GT Flexa Expanded", system-ui, -apple-system, sans-serif;
+  }
+
+  .card-description {
+    font-size: 14px;
+    color: #6b5e54;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+  }
+
+  /* Chatbot Container */
+  .chatbot-container {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 16px;
+    height: 400px;
+  }
+
+  .chatbot-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .card-cta {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #8a7660;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .card-cta:hover {
+    color: #2c2826;
+    transform: translateX(3px);
+  }
+
+  /* Audio Player */
+  .audio-player {
+    background: linear-gradient(135deg, #1a2633, #0f1b2d);
+    border-radius: 8px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .audio-player::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(58,134,255,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .audio-waveform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .waveform-bar {
+    width: 4px;
+    background: linear-gradient(to top, rgba(58,134,255,0.3), rgba(58,134,255,0.8));
+    border-radius: 2px;
+    animation: wave 1.2s ease-in-out infinite;
+  }
+
+  .waveform-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+  .waveform-bar:nth-child(2) { height: 35px; animation-delay: 0.1s; }
+  .waveform-bar:nth-child(3) { height: 45px; animation-delay: 0.2s; }
+  .waveform-bar:nth-child(4) { height: 55px; animation-delay: 0.3s; }
+  .waveform-bar:nth-child(5) { height: 60px; animation-delay: 0.4s; }
+  .waveform-bar:nth-child(6) { height: 60px; animation-delay: 0.5s; }
+  .waveform-bar:nth-child(7) { height: 55px; animation-delay: 0.6s; }
+  .waveform-bar:nth-child(8) { height: 45px; animation-delay: 0.7s; }
+  .waveform-bar:nth-child(9) { height: 35px; animation-delay: 0.8s; }
+  .waveform-bar:nth-child(10) { height: 20px; animation-delay: 0.9s; }
+
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.7); opacity: 0.6; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
+
+  .styled-audio {
+    width: 100%;
+    height: 40px;
+    filter: invert(1) hue-rotate(180deg) brightness(1.2);
+  }
+
+  .audio-duration {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    margin: 12px 0 0 0;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  /* Experiments Footer */
+  .experiments-footer {
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid rgba(160,148,135,0.15);
+  }
+
+  .footer-label {
+    font-size: 13px;
+    color: #8a7660;
+    font-style: italic;
+  }
+
   /* Triptych variant — three images side by side on desktop, stacked on mobile */
   /* Carousel Styles */
   .tl-carousel {
@@ -732,6 +905,15 @@
     .tl-artifact-img.is-triptych .tl-triptych-cell { aspect-ratio: 16 / 9; }
     .tl-artifact-img.is-split { grid-template-columns: 1fr; min-height: 0; }
     .tl-artifact-img.is-split .tl-split-chat { min-height: 460px; }
+
+    /* Responsive AI experiments */
+    .experiment-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .chatbot-container {
+      height: 350px;
+    }
     .tl-artifact-footer {
       flex-direction: column;
       align-items: flex-start;
@@ -1010,7 +1192,61 @@
       <div class="tl-item">
         <div class="tl-date-col"><span class="tl-date">2024–2025</span><span class="tl-tag">Experiments</span></div>
         <div class="tl-line-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content"><div class="tl-shell"><p class="tl-question">What if I stopped sending r&eacute;sum&eacute;s?</p><span class="tl-hint">+</span><div class="tl-drawer"><p class="tl-answer">Got tired of telling hiring managers who I was. Started showing them, using whatever AI tool had just dropped. October 2024, for a Netflix role: fed my portfolio, r&eacute;sum&eacute;, and the job description into NotebookLM. It generated a podcast episode about why I'd fit. Hearing yourself described by an AI that read everything is a different kind of feedback. February 2025, for a Meta role in emerging experiences: built AI Julie, a pre-interview chatbot on Chatbase, trained on my work and steered toward that specific job. Show, don't tell. And use the newest tool in the room to do it.</p><div class="tl-artifact"><div class="tl-artifact-img is-split"><div class="tl-split-chat"><iframe src="https://www.chatbase.co/chatbot-iframe/QgALQ5miAJr6jNuRVaYdU" title="Pre-Interview Julie chatbot" loading="lazy"></iframe></div><div class="tl-split-audio"><span class="tl-audio-kicker">NotebookLM · audio r&eacute;sum&eacute;</span><span class="tl-audio-title">An AI podcast on why I'd fit the role</span><span class="tl-audio-desc">Generated from my portfolio, r&eacute;sum&eacute;, and the job description. A 35-second preview.</span><audio controls preload="none" src="portfolio_audio_1.mp4">Your browser does not support the audio element.</audio><span class="tl-audio-caption">Chat with AI Julie &harr; listen to the r&eacute;sum&eacute;</span></div></div><div class="tl-artifact-footer"><span class="tl-artifact-label">Two applications, two AI experiments</span><a class="tl-artifact-link" href="https://www.flanneryallen.com" target="_blank" rel="noopener noreferrer" >Try them &rarr;</a></div></div><span class="tl-close">&#x2212; Close</span></div></div></div>
+        <div class="tl-content"><div class="tl-shell"><p class="tl-question">What if I stopped sending r&eacute;sum&eacute;s?</p><span class="tl-hint">+</span><div class="tl-drawer"><p class="tl-answer">Got tired of telling hiring managers who I was. Started showing them, using whatever AI tool had just dropped. October 2024, for a Netflix role: fed my portfolio, r&eacute;sum&eacute;, and the job description into NotebookLM. It generated a podcast episode about why I'd fit. Hearing yourself described by an AI that read everything is a different kind of feedback. February 2025, for a Meta role in emerging experiences: built AI Julie, a pre-interview chatbot on Chatbase, trained on my work and steered toward that specific job. Show, don't tell. And use the newest tool in the room to do it.</p><div class="tl-artifact ai-experiments">
+  <div class="experiment-cards">
+    <!-- Chatbot Card -->
+    <div class="experiment-card">
+      <div class="card-header">
+        <span class="card-label">Meta Application</span>
+        <span class="card-tool">Chatbase AI</span>
+      </div>
+      <h3 class="card-title">Pre-Interview Julie</h3>
+      <p class="card-description">A conversational AI trained on my portfolio for emerging experiences role</p>
+      <div class="chatbot-container">
+        <iframe
+          src="https://www.chatbase.co/chatbot-iframe/QgALQ5miAJr6jNuRVaYdU"
+          title="Pre-Interview Julie chatbot"
+          loading="lazy"
+          class="chatbot-iframe">
+        </iframe>
+      </div>
+      <a href="https://www.chatbase.co/chatbot-iframe/QgALQ5miAJr6jNuRVaYdU" target="_blank" rel="noopener noreferrer" class="card-cta">
+        Open chat &rarr;
+      </a>
+    </div>
+
+    <!-- Podcast Card -->
+    <div class="experiment-card">
+      <div class="card-header">
+        <span class="card-label">Netflix Application</span>
+        <span class="card-tool">NotebookLM</span>
+      </div>
+      <h3 class="card-title">Audio Résumé</h3>
+      <p class="card-description">AI-generated podcast analyzing fit from portfolio & job description</p>
+      <div class="audio-player">
+        <div class="audio-waveform">
+          <span class="waveform-bar"></span>
+          <span class="waveform-bar"></span>
+          <span class="waveform-bar"></span>
+          <span class="waveform-bar"></span>
+          <span class="waveform-bar"></span>
+          <span class="waveform-bar"></span>
+          <span class="waveform-bar"></span>
+          <span class="waveform-bar"></span>
+          <span class="waveform-bar"></span>
+          <span class="waveform-bar"></span>
+        </div>
+        <audio controls preload="none" src="portfolio_audio_1.mp4" class="styled-audio">
+          Your browser does not support the audio element.
+        </audio>
+        <p class="audio-duration">0:35 preview</p>
+      </div>
+    </div>
+  </div>
+  <div class="experiments-footer">
+    <span class="footer-label">Show, don't tell. Use AI to do it.</span>
+  </div>
+</div><span class="tl-close">&#x2212; Close</span></div></div></div>
       </div>
 
       <div class="tl-item">

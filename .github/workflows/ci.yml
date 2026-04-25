@@ -1,0 +1,211 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate-html:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install HTML validator
+        run: npm install -g html-validate
+
+      - name: Create HTML validation config
+        run: |
+          echo '{
+            "extends": ["html-validate:recommended"],
+            "rules": {
+              "void-style": "off",
+              "no-trailing-whitespace": "off",
+              "attr-quotes": "off"
+            }
+          }' > .htmlvalidate.json
+
+      - name: Validate HTML files
+        run: |
+          find . -name "*.html" -not -path "./node_modules/*" -exec echo "Validating: {}" \; -exec html-validate {} \;
+
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install and run local server
+        run: |
+          npm install -g http-server
+          http-server -p 8080 &
+          sleep 5
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            http://localhost:8080/
+            http://localhost:8080/strategy.html
+            http://localhost:8080/agency.html
+            http://localhost:8080/jcpenney.html
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  check-links:
+    name: Check Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v1
+        with:
+          fail: true
+          args: >
+            --exclude-mail
+            --exclude 'linkedin.com'
+            --exclude 'twitter.com'
+            --exclude 'localhost'
+            --exclude '127.0.0.1'
+            --accept 200,204,206,301,302,303,307,308
+            --max-retries 3
+            --user-agent "Mozilla/5.0 (compatible; CI/1.0)"
+            './**/*.html'
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy security scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          exit-code: '0'
+          severity: 'CRITICAL,HIGH'
+
+  code-quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ESLint and Prettier
+        run: |
+          npm init -y
+          npm install --save-dev eslint prettier eslint-plugin-html
+
+      - name: Create ESLint config
+        run: |
+          echo '{
+            "env": {
+              "browser": true,
+              "es2021": true
+            },
+            "extends": "eslint:recommended",
+            "plugins": ["html"],
+            "rules": {
+              "no-unused-vars": "warn",
+              "no-console": "warn"
+            },
+            "parserOptions": {
+              "ecmaVersion": 12
+            },
+            "overrides": [
+              {
+                "files": ["*.html"],
+                "processor": "html/html"
+              }
+            ]
+          }' > .eslintrc.json
+
+      - name: Create Prettier config
+        run: |
+          echo '{
+            "printWidth": 120,
+            "tabWidth": 2,
+            "useTabs": false,
+            "semi": true,
+            "singleQuote": true,
+            "trailingComma": "es5",
+            "bracketSpacing": true,
+            "arrowParens": "avoid"
+          }' > .prettierrc.json
+
+      - name: Run ESLint
+        run: npx eslint . --ext .html,.js --max-warnings 10
+        continue-on-error: true
+
+      - name: Check formatting with Prettier
+        run: npx prettier --check "**/*.{html,css,js,json,md}"
+        continue-on-error: true
+
+  spell-check:
+    name: Spell Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run spell check
+        uses: streetsidesoftware/cspell-action@v5
+        with:
+          files: '**/*.{html,md,txt}'
+          config: |
+            {
+              "version": "0.2",
+              "language": "en",
+              "words": [
+                "Flannery",
+                "Allen",
+                "JCPenney",
+                "Mattel",
+                "Cisco",
+                "ChatGPT",
+                "NotebookLM",
+                "Chatbase",
+                "webby",
+                "USPTO",
+                "navbar",
+                "résumé",
+                "iframe",
+                "href",
+                "src",
+                "div",
+                "svg"
+              ],
+              "ignorePaths": [
+                "node_modules",
+                ".git",
+                "*.min.js",
+                "*.min.css"
+              ]
+            }
+          strict: false
