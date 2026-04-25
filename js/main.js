@@ -30,6 +30,9 @@
    */
   function initTimelineItems() {
     const timelineItems = document.querySelectorAll('.tl-item');
+    let currentlyOpenItem = null;
+    let scrollStartPosition = 0;
+    let isScrolling = false;
 
     timelineItems.forEach(item => {
       // Skip the "Now" item which doesn't have interaction
@@ -39,7 +42,34 @@
         // Don't toggle if clicking on links or close button
         if (e.target.closest('a') || e.target.closest('.tl-close')) return;
 
+        // Close other open items first (accordion behavior)
+        if (currentlyOpenItem && currentlyOpenItem !== this) {
+          closeTimelineItem(currentlyOpenItem);
+        }
+
         toggleTimelineItem(this);
+
+        // Track which item is open
+        if (this.classList.contains('is-open')) {
+          currentlyOpenItem = this;
+          scrollStartPosition = window.scrollY;
+
+          // Smooth scroll to position drawer in view
+          setTimeout(() => {
+            const drawer = this.querySelector('.tl-drawer');
+            const rect = drawer.getBoundingClientRect();
+            const offset = 100; // Space from top
+
+            if (rect.top < offset) {
+              window.scrollTo({
+                top: window.scrollY + rect.top - offset,
+                behavior: 'smooth'
+              });
+            }
+          }, 100);
+        } else {
+          currentlyOpenItem = null;
+        }
       });
     });
 
@@ -48,8 +78,38 @@
     closeButtons.forEach(btn => {
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
-        closeTimelineItem(this.closest('.tl-item'));
+        const item = this.closest('.tl-item');
+        closeTimelineItem(item);
+        if (currentlyOpenItem === item) {
+          currentlyOpenItem = null;
+        }
       });
+    });
+
+    // Smart scroll behavior - close drawer when scrolling away
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      if (!currentlyOpenItem) return;
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const currentScroll = window.scrollY;
+        const scrollDistance = Math.abs(currentScroll - scrollStartPosition);
+
+        // If user has scrolled more than 300px from where they opened the drawer
+        if (scrollDistance > 300) {
+          smoothCloseTimelineItem(currentlyOpenItem);
+          currentlyOpenItem = null;
+        }
+      }, 150); // Debounce scroll events
+    });
+
+    // ESC key to close open drawer
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && currentlyOpenItem) {
+        smoothCloseTimelineItem(currentlyOpenItem);
+        currentlyOpenItem = null;
+      }
     });
   }
 
@@ -84,6 +144,26 @@
     if (hint) {
       hint.style.visibility = 'visible';
     }
+  }
+
+  /**
+   * Smoothly close timeline item with enhanced animation
+   */
+  function smoothCloseTimelineItem(item) {
+    const drawer = item.querySelector('.tl-drawer');
+    const hint = item.querySelector('.tl-hint');
+
+    // Add closing class for smooth animation
+    drawer.classList.add('closing');
+
+    setTimeout(() => {
+      drawer.classList.remove('open', 'closing');
+      item.classList.remove('is-open');
+
+      if (hint) {
+        hint.style.visibility = 'visible';
+      }
+    }, 300); // Match CSS transition duration
   }
 
   /**

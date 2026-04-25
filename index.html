@@ -282,12 +282,22 @@
     opacity: 0;
     transition: max-height 520ms cubic-bezier(0.16, 1, 0.3, 1), opacity 320ms ease, margin 320ms ease;
     margin-top: 0;
+    transform: translateY(-10px);
   }
 
   .tl-drawer.open {
     max-height: 900px;
     opacity: 1;
     margin-top: 18px;
+    transform: translateY(0);
+  }
+
+  .tl-drawer.closing {
+    transition: max-height 300ms cubic-bezier(0.4, 0, 0.6, 1),
+                opacity 200ms ease-out,
+                transform 300ms ease-out;
+    opacity: 0;
+    transform: translateY(-20px);
   }
 
   .tl-answer {
