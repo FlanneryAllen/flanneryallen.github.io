@@ -87,18 +87,21 @@
     });
 
     // Smart scroll behavior - close drawer when scrolling away
-    // BUT keep interactive items open (carousels, chatbots, audio players)
+    // BUT keep interactive items open (carousels, chatbots, audio players, images)
     let scrollTimeout;
     window.addEventListener('scroll', function() {
       if (!currentlyOpenItem) return;
 
-      // Check if the open item contains interactive elements - if so, don't auto-close
+      // Check if the open item contains interactive elements or visual content - if so, don't auto-close
       const hasCarousel = currentlyOpenItem.querySelector('.tl-carousel');
       const hasAIExperiments = currentlyOpenItem.querySelector('.ai-experiments');
       const hasChatbot = currentlyOpenItem.querySelector('.chatbot-container');
       const hasAudioPlayer = currentlyOpenItem.querySelector('.audio-player');
+      const hasArtifact = currentlyOpenItem.querySelector('.tl-artifact');
+      const hasImages = currentlyOpenItem.querySelector('.tl-artifact-img img');
 
-      if (hasCarousel || hasAIExperiments || hasChatbot || hasAudioPlayer) return;
+      // Don't auto-close if the drawer contains any interactive or visual content
+      if (hasCarousel || hasAIExperiments || hasChatbot || hasAudioPlayer || hasArtifact || hasImages) return;
 
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
