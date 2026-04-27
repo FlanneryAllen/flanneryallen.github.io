@@ -530,6 +530,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Add visual emphasis when carousel is active */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .tl-carousel:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
   }
 
   .carousel-container {
@@ -1159,7 +1166,9 @@
       <div class="tl-item">
         <div class="tl-date-col"><span class="tl-date">2025</span><span class="tl-tag">Prototypes</span></div>
         <div class="tl-line-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content"><div class="tl-shell"><p class="tl-question">What if I could turn my storytelling instincts into software?</p><span class="tl-hint">+</span><div class="tl-drawer"><p class="tl-answer">Years of corporate storytelling, turned into software one piece at a time. Matter Meter runs how I decide what's worth fighting for. Story Gap Mapper runs how I find what an organization isn't saying. Story Signal runs how I spot a story before it disappears. Three standalone tools in 2025. Looking back, they're the method. The Narrative Agent is what happens when you put them together.</p><div class="tl-artifact">
+        <div class="tl-content"><div class="tl-shell"><p class="tl-question">What if I could turn my storytelling instincts into software?</p><span class="tl-hint">+</span><div class="tl-drawer"><p class="tl-answer">Years of corporate storytelling, turned into software one piece at a time. Matter Meter runs how I decide what's worth fighting for. Story Gap Mapper runs how I find what an organization isn't saying. Story Signal runs how I spot a story before it disappears. Three standalone tools in 2025. Looking back, they're the method. The Narrative Agent is what happens when you put them together.</p>
+<p style="font-size: 12px; color: var(--magenta); margin: 12px 0 8px; text-transform: uppercase; letter-spacing: 0.12em;">✨ Interactive carousel — scroll & click to explore</p>
+<div class="tl-artifact">
   <div class="tl-carousel">
     <button class="carousel-nav carousel-prev">‹</button>
     <div class="carousel-container">
