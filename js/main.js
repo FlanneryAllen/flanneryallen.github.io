@@ -23,6 +23,9 @@
 
     // Lazy load iframes
     lazyLoadIframes();
+
+    // Fix Chatbase floating widget on mobile
+    fixChatbaseWidget();
   });
 
   /**
@@ -445,6 +448,78 @@
       iframes.forEach(iframe => {
         iframe.src = iframe.dataset.src;
         iframe.removeAttribute('data-src');
+      });
+    }
+  }
+
+  /**
+   * Fix Chatbase floating widget on mobile
+   * Prevents the Chatbase overlay widget from appearing on mobile devices
+   */
+  function fixChatbaseWidget() {
+    // Only run on mobile devices
+    if (window.innerWidth > 768) return;
+
+    // Function to hide Chatbase floating elements
+    function hideChatbaseFloatingWidget() {
+      // Select all potential Chatbase floating widget elements
+      const selectors = [
+        // Direct children of body with fixed positioning
+        'body > div[style*="position: fixed"][style*="bottom"]',
+        'body > iframe[style*="position: fixed"]:not(.chatbot-iframe)',
+        // Chatbase specific classes and IDs
+        'div[class*="chatbase-bubble"]',
+        'div[class*="chatbase-floating"]',
+        'div[id*="chatbase-widget"]:not(.chatbot-container)',
+        // High z-index elements that might be chat widgets
+        'body > div[style*="z-index: 9999"]',
+        'body > div[style*="z-index: 10000"]',
+        'body > div[style*="z-index: 99999"]'
+      ];
+
+      selectors.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => {
+          // Check if this element is not part of our intentional embeds
+          if (!el.closest('.chatbot-container') && !el.classList.contains('chatbot-iframe')) {
+            el.style.display = 'none';
+            el.style.visibility = 'hidden';
+          }
+        });
+      });
+    }
+
+    // Run immediately
+    hideChatbaseFloatingWidget();
+
+    // Also run after a delay to catch dynamically injected elements
+    setTimeout(hideChatbaseFloatingWidget, 1000);
+    setTimeout(hideChatbaseFloatingWidget, 3000);
+
+    // Watch for new elements being added to the DOM
+    if ('MutationObserver' in window) {
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+            // Check if any of the added nodes might be Chatbase widgets
+            mutation.addedNodes.forEach(node => {
+              if (node.nodeType === 1) { // Element node
+                const style = node.getAttribute('style') || '';
+                if (style.includes('position: fixed') ||
+                    node.id?.includes('chatbase') ||
+                    node.className?.includes('chatbase')) {
+                  hideChatbaseFloatingWidget();
+                }
+              }
+            });
+          }
+        });
+      });
+
+      // Start observing the body for added nodes
+      observer.observe(document.body, {
+        childList: true,
+        subtree: false
       });
     }
   }

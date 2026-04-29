@@ -4,6 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Work — Flannery Allen</title>
+
+<!-- Domain Redirect: Ensure flanneryallen.com redirects to flanneryallen.github.io -->
+<script>
+  (function() {
+    // Only redirect if we're on flanneryallen.com (not github.io)
+    if (window.location.hostname === 'flanneryallen.com' ||
+        window.location.hostname === 'www.flanneryallen.com') {
+      // Preserve the full path, query string, and hash
+      window.location.replace('https://flanneryallen.github.io' +
+        window.location.pathname +
+        window.location.search +
+        window.location.hash);
+    }
+  })();
+</script>
+
 <link rel="icon" type="image/png" href="/smiley-favicon.png">
 <link rel="apple-touch-icon" href="/smiley-favicon.png">
 
@@ -1513,6 +1529,31 @@
   color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
   margin: 0;
+}
+
+/* Fix for Chatbase floating widget on mobile */
+/* Hide the overlay chat widget that appears on mobile */
+@media (max-width: 768px) {
+  /* Target Chatbase's floating widget elements */
+  body > div[style*="position: fixed"][style*="bottom"],
+  body > iframe[style*="position: fixed"][style*="bottom"]:not(.chatbot-iframe),
+  div[class*="chatbase-bubble"],
+  div[class*="chatbase-floating"],
+  div[id*="chatbase-widget"]:not(.chatbot-container),
+  /* Generic floating elements with high z-index that might be chat widgets */
+  body > div[style*="z-index: 9999"],
+  body > div[style*="z-index: 10000"],
+  body > div[style*="z-index: 99999"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Ensure our intentional chatbot embeds remain visible */
+  .chatbot-container,
+  .chatbot-container iframe.chatbot-iframe {
+    display: block !important;
+    visibility: visible !important;
+  }
 }
 
 @media (max-width: 768px) {

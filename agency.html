@@ -6,6 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agency Life — Flannery Allen</title>
 
+<!-- Domain Redirect: Ensure flanneryallen.com redirects to flanneryallen.github.io -->
+<script>
+  (function() {
+    // Only redirect if we're on flanneryallen.com (not github.io)
+    if (window.location.hostname === 'flanneryallen.com' ||
+        window.location.hostname === 'www.flanneryallen.com') {
+      // Preserve the full path, query string, and hash
+      window.location.replace('https://flanneryallen.github.io' +
+        window.location.pathname +
+        window.location.search +
+        window.location.hash);
+    }
+  })();
+</script>
+
 <!-- Security Headers -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube-nocookie.com https://www.chatbase.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube-nocookie.com https://www.chatbase.co https://narrative-intelligence-demo.netlify.app; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
 <meta http-equiv="X-XSS-Protection" content="1; mode=block">
