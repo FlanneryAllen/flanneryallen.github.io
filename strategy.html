@@ -781,11 +781,11 @@
   }
 
   .julie-page .carousel-prev {
-    left: -60px;
+    left: 10px;
   }
 
   .julie-page .carousel-next {
-    right: -60px;
+    right: 10px;
   }
 
   .julie-page .carousel-dots {
@@ -795,7 +795,7 @@
     margin-top: 20px;
   }
 
-  .julie-page .dot {
+  .julie-page .carousel-dots .dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -805,9 +805,10 @@
     transition: all var(--ease);
   }
 
-  .julie-page .dot.active,
-  .julie-page .dot:hover {
+  .julie-page .carousel-dots .dot.active,
+  .julie-page .carousel-dots .dot:hover {
     background: var(--magenta);
+    border-color: var(--magenta);
   }
 
   /* Implementation Evidence */
@@ -999,37 +1000,57 @@
 </style>
 
 <script>
-let currentSlideIndex = 0;
-const slides = document.querySelectorAll('.carousel-slide');
-const dots = document.querySelectorAll('.dot');
-
-function showSlide(n) {
-  slides[currentSlideIndex].classList.remove('active');
-  dots[currentSlideIndex].classList.remove('active');
-  
-  currentSlideIndex = (n + slides.length) % slides.length;
-  
-  slides[currentSlideIndex].classList.add('active');
-  dots[currentSlideIndex].classList.add('active');
-}
-
-function moveSlide(n) {
-  showSlide(currentSlideIndex + n);
-}
-
-function currentSlide(n) {
-  showSlide(n - 1);
-}
-
-// Initialize
 document.addEventListener('DOMContentLoaded', function() {
+  let currentSlideIndex = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const carouselDots = document.querySelectorAll('.carousel-dots .dot');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+
+  function showSlide(n) {
+    if (slides.length === 0 || carouselDots.length === 0) return;
+
+    slides[currentSlideIndex].classList.remove('active');
+    carouselDots[currentSlideIndex].classList.remove('active');
+
+    currentSlideIndex = (n + slides.length) % slides.length;
+
+    slides[currentSlideIndex].classList.add('active');
+    carouselDots[currentSlideIndex].classList.add('active');
+  }
+
+  function moveSlide(n) {
+    showSlide(currentSlideIndex + n);
+  }
+
+  // Add event listeners for navigation buttons
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      moveSlide(-1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      moveSlide(1);
+    });
+  }
+
+  // Add event listeners for dots
+  carouselDots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      showSlide(index);
+    });
+  });
+
+  // Initialize the first slide
   if (slides.length > 0) {
     showSlide(0);
   }
-});
 
-// Optional: Auto-advance carousel every 10 seconds
-// setInterval(() => moveSlide(1), 10000);
+  // Optional: Auto-advance carousel every 10 seconds
+  // setInterval(() => moveSlide(1), 10000);
+});
 </script>
 
 <script src="js/main.js"></script>
