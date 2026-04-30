@@ -79,10 +79,17 @@
   }
 
   .wrap {
-    width: min(calc(100% - 30px), var(--max));
-    margin: 0 auto;
+    width: min(calc(100% - 130px), var(--max));
+    margin: 0 auto 0 100px;
     position: relative;
     z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
   }
 
   /* ========== ICON WATERMARK LAYER ========== */
