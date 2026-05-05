@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Go From Mentee to Inventor — Flannery Allen</title>
+<link rel="icon" type="image/png" href="/smiley-favicon.png">
+<link rel="apple-touch-icon" href="/smiley-favicon.png">
+
+<!-- Security Headers -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none'; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #d4d2cc;
+    --bg-2: #cbcac3;
+    --bg-3: #c3c1ba;
+    --paper-fiber: rgba(255,255,255,0.045);
+    --text: #53504b;
+    --text-soft: #716d67;
+    --text-faint: rgba(83,80,75,0.54);
+    --magenta: #ff4a96;
+    --display: 'Archivo Black', Arial Black, sans-serif;
+    --body: 'Inter', Arial, sans-serif;
+    --max: 1220px;
+    --ease: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family: var(--body);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 35%),
+      radial-gradient(circle at 80% 10%, rgba(255,255,255,0.04), transparent 28%),
+      radial-gradient(circle at 60% 80%, rgba(255,255,255,0.035), transparent 32%),
+      repeating-linear-gradient(0deg, transparent 0 39px, var(--paper-fiber) 39px 40px),
+      repeating-linear-gradient(90deg, transparent 0 59px, rgba(255,255,255,0.018) 59px 60px),
+      linear-gradient(to bottom, var(--bg), var(--bg-2) 52%, var(--bg-3));
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 8px 8px;
+    mix-blend-mode: soft-light;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .back-link {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    transition: color var(--ease), transform var(--ease);
+    z-index: 10;
+  }
+  .back-link:hover { color: var(--magenta); transform: translateX(-3px); }
+
+  .article-container {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding-top: 80px; /* Add breathing room at the top */
+    padding-bottom: 100px; /* Add space for the footer button */
+  }
+
+  .footer-link {
+    position: relative;
+    margin-top: 60px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--magenta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border: 1px solid rgba(255,74,150,0.35);
+    border-radius: 999px;
+    transition: background var(--ease), color var(--ease), border-color var(--ease);
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .footer-link:hover {
+    background: var(--magenta);
+    color: #ffffff;
+    border-color: var(--magenta);
+  }
+
+  @media (max-width: 760px) {
+    .back-link {
+      top: 20px;
+      left: 20px;
+    }
+
+    .article-container {
+      padding-top: 60px; /* Less top padding on mobile */
+      padding-bottom: 80px; /* Slightly less padding on mobile */
+    }
+
+    .footer-link {
+      margin-top: 40px; /* Less margin on mobile */
+    }
+  }
+</style>
+</head>
+<body>
+  <a href="index.html" class="back-link">&larr; Back</a>
+
+  <div class="article-container">
+    <!-- Original article image -->
+    <img src="inventor-images/mentee-to-inventor.png"
+         alt="How to Go From Mentee to Inventor - Full article from Cisco Employee Connection"
+         loading="lazy"
+         style="width: 100%; height: auto; margin: 0 auto; display: block; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" />
+  </div>
+
+  <a href="inventor.html" class="footer-link">Back to Innovation Story &rarr;</a>
+</body>
+</html>
