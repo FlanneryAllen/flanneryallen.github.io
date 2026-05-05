@@ -855,6 +855,7 @@
       padding-top: 26px;
       border-top: 1px solid rgba(255,74,150,0.22);
       margin-top: 0;
+      margin-bottom: 24px;
     }
     .tl-item:first-of-type {
       border-top: none;
@@ -906,7 +907,11 @@
     .tl-answer { font-size: 15px; line-height: 1.75; }
 
     /* Let the drawer breathe horizontally so artifacts can full-bleed */
-    .tl-drawer.open { overflow: visible; }
+    .tl-drawer.open {
+      overflow: visible;
+      max-height: none;
+      margin-bottom: 20px;
+    }
 
     /* Full-bleed artifact tile — breaks out to screen edges */
     .tl-artifact {
