@@ -86,11 +86,12 @@
   .back-link:hover { color: var(--magenta); transform: translateX(-3px); }
 
   .campaign-container {
-    max-width: 800px;
+    max-width: 900px;
     width: 100%;
     text-align: center;
     position: relative;
     z-index: 2;
+    padding-bottom: 100px; /* Add space for the footer button */
   }
 
   .bob-image {
@@ -132,10 +133,8 @@
   }
 
   .footer-link {
-    position: fixed;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    margin-top: 60px;
     font-size: 11px;
     font-weight: 700;
     color: var(--magenta);
@@ -165,8 +164,12 @@
       padding: 24px;
     }
 
+    .campaign-container {
+      padding-bottom: 80px; /* Slightly less padding on mobile */
+    }
+
     .footer-link {
-      bottom: 20px;
+      margin-top: 40px; /* Less margin on mobile */
     }
   }
 </style>
@@ -174,7 +177,7 @@
 <body>
   <a href="index.html" class="back-link">&larr; Back</a>
 
-  <div class="campaign-container" style="max-width: 900px;">
+  <div class="campaign-container">
     <!-- Original article image -->
     <img src="comms-images/Original_Bob_Yubikey.png"
          alt="This is Bob. He just got a YubiKey - Full article from Cisco Employee Connection"
