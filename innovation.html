@@ -315,14 +315,14 @@
   }
 
   /* Carousel Styles */
-  .patent-carousel {
+  .tl-carousel {
     position: relative;
     width: 100%;
     background: #ffffff;
     border: 1px solid var(--line);
     border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 32px;
+    margin-bottom: 8px;
   }
 
   .carousel-container {
@@ -360,11 +360,10 @@
 
   .carousel-slide img {
     max-width: 100%;
-    max-height: 80%;
+    max-height: 90%;
     width: auto;
     height: auto;
     object-fit: contain;
-    margin-bottom: 20px;
   }
 
   .carousel-caption {
@@ -372,8 +371,9 @@
     font-size: 14px;
     font-style: italic;
     text-align: center;
-    max-width: 600px;
+    max-width: 720px;
     line-height: 1.6;
+    margin: 16px auto 32px;
   }
 
   .carousel-nav {
@@ -472,25 +472,21 @@
           <p>I designed the system architecture, wrote the disclosure, did the UX, named it. Engaged Apple Clips as prior art on page three. Filed September 2020. Granted as US 11,729,584 in August 2023.</p>
         </div>
 
-        <div class="patent-carousel">
+        <div class="tl-carousel">
           <button class="carousel-nav carousel-prev">‹</button>
           <div class="carousel-container">
             <div class="carousel-track">
               <div class="carousel-slide active">
                 <img src="winwin.png" alt="Webex Orbit Win-Win Venn diagram">
-                <div class="carousel-caption">The whole architecture in one figure: the user's orbit, the location owner's orbit, and the overlap where the experience lives.</div>
               </div>
               <div class="carousel-slide">
                 <img src="walmart1.png" alt="Walmart use case">
-                <div class="carousel-caption">Walking the framework through a specific use case.</div>
               </div>
               <div class="carousel-slide">
                 <img src="techflow.png" alt="Technical flow diagram">
-                <div class="carousel-caption">The same idea, specified for engineering.</div>
               </div>
               <div class="carousel-slide">
                 <img src="multiple venues.png" alt="Multiple venues diagram">
-                <div class="carousel-caption">One app. Multiple venues. Countless experiences.</div>
               </div>
             </div>
           </div>
@@ -502,6 +498,8 @@
             <span class="dot"></span>
           </div>
         </div>
+
+        <p class="carousel-caption">The system architecture: from concept (Win-Win overlap) to use case (Walmart) to engineering (technical flow) to vision (multiple venues).</p>
 
         <a href="https://patents.google.com/patent/US11729584B2/en" target="_blank" rel="noopener noreferrer" class="patent-link">
           View patent on Google Patents →
