@@ -235,14 +235,21 @@
     const slides = carousel.querySelectorAll('.carousel-slide');
     const dots = carousel.querySelectorAll('.dot');
 
+    console.log('Total slides found:', slides.length);
+    console.log('Total dots found:', dots.length);
+
     let currentIndex = Array.from(slides).findIndex(slide =>
       slide.classList.contains('active')
     );
+
+    console.log('Current index:', currentIndex, 'Direction:', direction);
 
     slides[currentIndex].classList.remove('active');
     dots[currentIndex].classList.remove('active');
 
     currentIndex = (currentIndex + direction + slides.length) % slides.length;
+
+    console.log('New index:', currentIndex);
 
     slides[currentIndex].classList.add('active');
     dots[currentIndex].classList.add('active');
