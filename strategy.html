@@ -1200,30 +1200,35 @@ document.addEventListener('DOMContentLoaded', function() {
   // Optional: Auto-advance carousel every 10 seconds
   // setInterval(() => moveSlide(1), 10000);
 
-  // Lightbox functionality
+  // Lightbox functionality (using event delegation)
   const lightbox = document.getElementById('imageLightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCaption = document.getElementById('lightboxCaption');
   const closeBtn = document.querySelector('.lightbox-close');
 
-  // Make all carousel images clickable
-  const carouselImages = document.querySelectorAll('.carousel-slide .evidence-img-container img');
+  // Use event delegation to handle clicks on carousel images
+  document.body.addEventListener('click', function(e) {
+    const clickedImg = e.target;
 
-  carouselImages.forEach(img => {
-    img.addEventListener('click', function() {
+    if (clickedImg.tagName === 'IMG' && clickedImg.closest('.evidence-img-container')) {
+      e.stopPropagation();
+      e.preventDefault();
+
       lightbox.style.display = 'block';
-      lightboxImg.src = this.src;
-      lightboxImg.alt = this.alt;
+      lightboxImg.src = clickedImg.src;
+      lightboxImg.alt = clickedImg.alt;
 
       // Get the caption text from the nearest .evidence-caption element
-      const captionElement = this.closest('.carousel-slide').querySelector('.evidence-caption');
+      const captionElement = clickedImg.closest('.carousel-slide')?.querySelector('.evidence-caption');
       if (captionElement) {
         lightboxCaption.innerHTML = captionElement.innerHTML;
+      } else {
+        lightboxCaption.textContent = '';
       }
 
       // Prevent body scroll when lightbox is open
       document.body.style.overflow = 'hidden';
-    });
+    }
   });
 
   // Close lightbox when clicking the X button

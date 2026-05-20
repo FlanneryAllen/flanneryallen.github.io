@@ -680,31 +680,35 @@
 
 <script src="js/main.js"></script>
 <script>
-// Lightbox functionality for innovation page carousel
+// Lightbox functionality for innovation page carousel (using event delegation)
 document.addEventListener('DOMContentLoaded', function() {
   const lightbox = document.getElementById('imageLightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCaption = document.getElementById('lightboxCaption');
   const closeBtn = document.querySelector('.lightbox-close');
 
-  // Make all carousel images clickable
-  const carouselImages = document.querySelectorAll('.carousel-slide img');
+  // Use event delegation to handle clicks on carousel images
+  document.body.addEventListener('click', function(e) {
+    const clickedImg = e.target;
 
-  carouselImages.forEach(img => {
-    img.addEventListener('click', function(e) {
+    if (clickedImg.tagName === 'IMG' && clickedImg.closest('.carousel-slide')) {
       e.stopPropagation(); // Prevent carousel click handler
+      e.preventDefault();
+
       lightbox.style.display = 'block';
-      lightboxImg.src = this.src;
-      lightboxImg.alt = this.alt;
+      lightboxImg.src = clickedImg.src;
+      lightboxImg.alt = clickedImg.alt;
 
       // Use the image alt text as caption
-      if (this.alt) {
-        lightboxCaption.textContent = this.alt;
+      if (clickedImg.alt) {
+        lightboxCaption.textContent = clickedImg.alt;
+      } else {
+        lightboxCaption.textContent = '';
       }
 
       // Prevent body scroll when lightbox is open
       document.body.style.overflow = 'hidden';
-    });
+    }
   });
 
   // Close lightbox when clicking the X button
