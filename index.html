@@ -1694,7 +1694,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const lightboxCaption = document.getElementById('lightboxCaption');
   const closeBtn = document.querySelector('.lightbox-close');
 
-  // Use event delegation to handle clicks on images (even in collapsed drawers)
+  // Use event delegation with capture phase to handle clicks BEFORE drawer handlers
   document.body.addEventListener('click', function(e) {
     // Check if clicked element is an image inside artifact or carousel
     const clickedImg = e.target;
@@ -1703,6 +1703,7 @@ document.addEventListener('DOMContentLoaded', function() {
         (clickedImg.closest('.tl-artifact-img') || clickedImg.closest('.carousel-slide'))) {
 
       e.stopPropagation(); // Prevent drawer/carousel click handlers
+      e.stopImmediatePropagation(); // Stop ALL other handlers
       e.preventDefault();
 
       lightbox.style.display = 'block';
@@ -1724,8 +1725,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Prevent body scroll when lightbox is open
       document.body.style.overflow = 'hidden';
+
+      return false; // Extra safeguard to prevent event propagation
     }
-  });
+  }, true); // Use capture phase to intercept event BEFORE it reaches drawer handlers
 
   // Close lightbox when clicking the X button
   if (closeBtn) {
