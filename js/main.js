@@ -192,8 +192,8 @@
       initCarousel(carousel);
     });
 
-    // Strategy page carousel
-    const strategyCarousel = document.querySelector('.carousel-container');
+    // Strategy page carousel (only runs on strategy.html)
+    const strategyCarousel = document.querySelector('.evidence-carousel .carousel-container');
     if (strategyCarousel) {
       initStrategyCarousel();
     }
