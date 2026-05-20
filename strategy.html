@@ -1206,13 +1206,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const lightboxCaption = document.getElementById('lightboxCaption');
   const closeBtn = document.querySelector('.lightbox-close');
 
-  // Use event delegation with capture phase to handle clicks BEFORE other handlers
+  // Use event delegation to handle clicks on carousel images
   document.body.addEventListener('click', function(e) {
     const clickedImg = e.target;
 
     if (clickedImg.tagName === 'IMG' && clickedImg.closest('.evidence-img-container')) {
       e.stopPropagation();
-      e.stopImmediatePropagation(); // Stop ALL other handlers
       e.preventDefault();
 
       lightbox.style.display = 'block';
@@ -1229,10 +1228,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Prevent body scroll when lightbox is open
       document.body.style.overflow = 'hidden';
-
-      return false; // Extra safeguard to prevent event propagation
     }
-  }, true); // Use capture phase to intercept event early
+  });
 
   // Close lightbox when clicking the X button
   if (closeBtn) {
