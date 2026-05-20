@@ -313,6 +313,137 @@
     .content-section { padding: 48px 0; }
     .diagram-img { padding: 32px 24px; }
   }
+
+  /* Carousel Styles */
+  .patent-carousel {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .carousel-slide.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .carousel-slide img {
+    max-width: 100%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
+
+  .carousel-caption {
+    color: var(--text-soft);
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    color: var(--text);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-nav:hover {
+    background: rgba(255,255,255,1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .carousel-prev {
+    left: 16px;
+  }
+
+  .carousel-next {
+    right: 16px;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .carousel-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(83,80,75,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dots .dot.active {
+    background: var(--magenta);
+    transform: scale(1.2);
+  }
+
+  .carousel-dots .dot:hover {
+    background: rgba(83,80,75,0.5);
+  }
+
+  @media (max-width: 768px) {
+    .carousel-container { height: 450px; }
+    .carousel-slide { padding: 24px; }
+    .carousel-slide img { max-height: 75%; }
+    .carousel-nav { width: 36px; height: 36px; font-size: 20px; }
+    .carousel-prev { left: 8px; }
+    .carousel-next { right: 8px; }
+  }
 </style>
 </head>
 <body>
@@ -341,25 +472,35 @@
           <p>I designed the system architecture, wrote the disclosure, did the UX, named it. Engaged Apple Clips as prior art on page three. Filed September 2020. Granted as US 11,729,584 in August 2023.</p>
         </div>
 
-        <div class="diagram-showcase">
-          <div class="diagram-img">
-            <img src="winwin.png" alt="Webex Orbit Win-Win Venn diagram">
+        <div class="patent-carousel">
+          <button class="carousel-nav carousel-prev">‹</button>
+          <div class="carousel-container">
+            <div class="carousel-track">
+              <div class="carousel-slide active">
+                <img src="winwin.png" alt="Webex Orbit Win-Win Venn diagram">
+                <div class="carousel-caption">The whole architecture in one figure: the user's orbit, the location owner's orbit, and the overlap where the experience lives.</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="walmart1.png" alt="Walmart use case">
+                <div class="carousel-caption">Walking the framework through a specific use case.</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="techflow.png" alt="Technical flow diagram">
+                <div class="carousel-caption">The same idea, specified for engineering.</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="multiple venues.png" alt="Multiple venues diagram">
+                <div class="carousel-caption">One app. Multiple venues. Countless experiences.</div>
+              </div>
+            </div>
           </div>
-          <div class="diagram-caption">The whole architecture in one figure: the user's orbit, the location owner's orbit, and the overlap where the experience lives.</div>
-        </div>
-
-        <div class="diagram-showcase">
-          <div class="diagram-img">
-            <img src="walmart1.png" alt="Walmart use case progression">
+          <button class="carousel-nav carousel-next">›</button>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
           </div>
-          <div class="diagram-caption">Walking the architecture through a specific use case.</div>
-        </div>
-
-        <div class="diagram-showcase">
-          <div class="diagram-img">
-            <img src="techflow.png" alt="Technical flow diagram">
-          </div>
-          <div class="diagram-caption">The same idea, specified for engineering.</div>
         </div>
 
         <a href="https://patents.google.com/patent/US11729584B2/en" target="_blank" rel="noopener noreferrer" class="patent-link">
@@ -443,5 +584,6 @@
     </footer>
   </main>
 </div>
+<script src="js/main.js"></script>
 </body>
 </html>
