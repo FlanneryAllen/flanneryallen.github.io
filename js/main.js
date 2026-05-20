@@ -80,6 +80,7 @@
     const closeButtons = document.querySelectorAll('.tl-close');
     closeButtons.forEach(btn => {
       btn.addEventListener('click', function(e) {
+        e.preventDefault();
         e.stopPropagation();
         const item = this.closest('.tl-item');
         closeTimelineItem(item);
