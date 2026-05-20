@@ -214,6 +214,7 @@
 
     <!-- FOOTER -->
     <section class="footer">
+      <a href="index.html" class="footer-back-link">&larr; Back to the work</a>
       <span class="footer-note">Julie Flannery Allen • flanneryallen.com</span>
     </section>
 
@@ -979,6 +980,29 @@
   .julie-page .footer {
     padding: 40px 0 60px;
     border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .julie-page .footer-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 20px;
+    transition: color var(--ease), transform var(--ease);
+    text-align: center;
+    justify-content: center;
+  }
+
+  .julie-page .footer-back-link:hover {
+    color: var(--magenta);
+    transform: translateX(-3px);
   }
 
   .julie-page .footer-note {
@@ -1115,8 +1139,14 @@
     max-width: 700px;
     text-align: center;
     color: #ffffff;
+    font-family: var(--body);
     font-size: 16px;
     line-height: 1.6;
+  }
+
+  .lightbox-caption strong {
+    font-family: var(--body);
+    font-weight: 600;
   }
 
   /* Clickable cursor for carousel images */

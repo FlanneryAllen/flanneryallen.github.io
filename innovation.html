@@ -292,6 +292,27 @@
     padding: 30px 0;
     border-top: 1px solid var(--line);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 20px;
+    transition: color var(--ease), transform var(--ease);
+  }
+
+  .footer-back-link:hover {
+    color: var(--magenta);
+    transform: translateX(-3px);
   }
 
   footer p {
@@ -501,8 +522,14 @@
     max-width: 700px;
     text-align: center;
     color: #ffffff;
+    font-family: var(--body);
     font-size: 16px;
     line-height: 1.6;
+  }
+
+  .lightbox-caption strong {
+    font-family: var(--body);
+    font-weight: 600;
   }
 
   /* Clickable cursor for carousel images */
@@ -662,6 +689,7 @@
     <p class="closing-statement">A patent is a brief with a longer deadline. A startup is a brief you wrote yourself.</p>
 
     <footer>
+      <a href="index.html" class="footer-back-link">&larr; Back to the work</a>
       <p>
         © 2026 Flannery Allen ·
         <a href="privacy.html">Privacy Policy</a> ·

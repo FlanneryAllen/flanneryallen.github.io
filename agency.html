@@ -412,6 +412,21 @@
     text-transform: uppercase;
   }
 
+  .julie-page .footer-back-link {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 16px;
+    transition: color var(--ease), transform var(--ease);
+  }
+  .julie-page .footer-back-link:hover {
+    color: var(--magenta);
+    transform: translateX(-3px);
+  }
+
   /* ========== MOBILE ========== */
   @media (max-width: 768px) {
     .julie-page .wrap {
@@ -527,6 +542,7 @@
 
     <!-- FOOTER -->
     <section class="footer">
+      <a href="index.html" class="footer-back-link">&larr; Back to the work</a>
       <span class="footer-note">Julie Flannery Allen &middot; flanneryallen.com</span>
     </section>
 
