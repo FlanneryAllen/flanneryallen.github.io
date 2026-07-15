@@ -1,4 +1,4 @@
-# robots.txt for flanneryallen.github.io
+# robots.txt for flanneryallen.com
 # Allow all crawlers to index the portfolio
 
 User-agent: *
@@ -6,7 +6,7 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://flanneryallen.github.io/sitemap.xml
+Sitemap: https://flanneryallen.com/sitemap.xml
 
 # Specific bot rules
 User-agent: Googlebot
