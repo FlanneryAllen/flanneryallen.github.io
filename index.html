@@ -147,17 +147,6 @@
     z-index: 2;
   }
 
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 60px;
-    align-items: start;
-  }
-
-  .hero-content {
-    min-width: 0;
-  }
-
   .page-label {
     color: var(--magenta);
     font-size: 12px;
@@ -195,69 +184,150 @@
     line-height: 1.65;
   }
 
-  /* ========== HERO CHATBOT SIDEBAR ========== */
-  .hero-chatbot {
-    background: linear-gradient(145deg, rgba(250,248,245,0.95), rgba(245,242,237,0.95));
-    border: 1px solid rgba(160,148,135,0.2);
+  /* ========== FLOATING CHAT WIDGET ========== */
+  .chat-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10000;
+  }
+
+  .chat-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--magenta);
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 74, 150, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: white;
+  }
+
+  .chat-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(255, 74, 150, 0.5);
+  }
+
+  .chat-button .chat-icon {
+    display: block;
+  }
+
+  .chat-button .close-icon {
+    display: none;
+  }
+
+  .chat-button.open .chat-icon {
+    display: none;
+  }
+
+  .chat-button.open .close-icon {
+    display: block;
+  }
+
+  .chat-panel {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 380px;
+    height: 600px;
+    background: white;
     border-radius: 12px;
-    padding: 24px;
-    box-shadow:
-      0 1px 3px rgba(0,0,0,0.05),
-      inset 0 1px 2px rgba(255,255,255,0.4);
-  }
-
-  .chatbot-header {
-    margin-bottom: 16px;
-  }
-
-  .chatbot-label {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--magenta);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .chatbot-subtitle {
-    font-size: 13px;
-    color: var(--text-soft);
-    line-height: 1.5;
-  }
-
-  .chatbot-embed {
-    background: #ffffff;
-    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    height: 480px;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .hero-chatbot-iframe {
+  .chat-panel.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .chat-panel-header {
+    background: linear-gradient(135deg, var(--magenta), var(--magenta-deep));
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .chat-panel-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .chat-panel-subtitle {
+    font-size: 13px;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+
+  .chat-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .chat-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .chat-panel-content {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .chat-iframe {
     width: 100%;
     height: 100%;
     border: none;
     display: block;
   }
 
-  @media (max-width: 1024px) {
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
+  @media (max-width: 768px) {
+    .chat-widget {
+      bottom: 16px;
+      right: 16px;
     }
 
-    .hero-chatbot {
-      max-width: 600px;
+    .chat-button {
+      width: 56px;
+      height: 56px;
+    }
+
+    .chat-panel {
+      width: calc(100vw - 32px);
+      max-width: 380px;
+      height: 500px;
+      bottom: 76px;
     }
   }
 
-  @media (max-width: 768px) {
-    .hero-chatbot {
-      padding: 20px;
-    }
-
-    .chatbot-embed {
-      height: 400px;
+  @media (max-width: 480px) {
+    .chat-panel {
+      width: calc(100vw - 16px);
+      right: -8px;
+      height: 70vh;
+      max-height: 500px;
     }
   }
 
@@ -1248,29 +1318,9 @@
 
   <main class="wrap">
     <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <h1 class="hero-title">Every good idea starts with a question.</h1>
-          <p class="hero-sub">What if? Why not.</p>
-          <p class="page-desc">Strategy. Storytelling. Innovation. AI builds. Narrative systems.</p>
-        </div>
-
-        <!-- Pre-Interview Me Chatbot Sidebar -->
-        <div class="hero-chatbot">
-          <div class="chatbot-header">
-            <div class="chatbot-label">Pre-Interview Me</div>
-            <div class="chatbot-subtitle">Ask my AI counterpart about my career, projects, or how I think.</div>
-          </div>
-          <div class="chatbot-embed">
-            <iframe
-              src="https://www.chatbase.co/chatbot-iframe/QgALQ5miAJr6jNuRVaYdU"
-              title="Pre-Interview Julie chatbot"
-              loading="lazy"
-              class="hero-chatbot-iframe">
-            </iframe>
-          </div>
-        </div>
-      </div>
+      <h1 class="hero-title">Every good idea starts with a question.</h1>
+      <p class="hero-sub">What if? Why not.</p>
+      <p class="page-desc">Strategy. Storytelling. Innovation. AI builds. Narrative systems.</p>
     </section>
 
     <section class="tl-wrap">
@@ -1762,5 +1812,73 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+
+<!-- Floating Chatbot Widget -->
+<div id="chatWidget" class="chat-widget">
+  <button id="chatButton" class="chat-button" aria-label="Open chat">
+    <svg class="chat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+
+  <div id="chatPanel" class="chat-panel">
+    <div class="chat-panel-header">
+      <div>
+        <div class="chat-panel-title">Pre-Interview Me</div>
+        <div class="chat-panel-subtitle">Ask about my career, projects, or how I think.</div>
+      </div>
+      <button id="chatClose" class="chat-close-btn" aria-label="Close chat">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="chat-panel-content">
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/QgALQ5miAJr6jNuRVaYdU"
+        title="Pre-Interview Julie chatbot"
+        loading="lazy"
+        class="chat-iframe">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+// Floating chat widget functionality
+(function() {
+  const chatButton = document.getElementById('chatButton');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatClose = document.getElementById('chatClose');
+  let isOpen = false;
+
+  function toggleChat() {
+    isOpen = !isOpen;
+    if (isOpen) {
+      chatPanel.classList.add('open');
+      chatButton.classList.add('open');
+    } else {
+      chatPanel.classList.remove('open');
+      chatButton.classList.remove('open');
+    }
+  }
+
+  chatButton.addEventListener('click', toggleChat);
+  chatClose.addEventListener('click', toggleChat);
+
+  // Close on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isOpen) {
+      toggleChat();
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
