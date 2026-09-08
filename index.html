@@ -1872,9 +1872,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isOpen) {
       chatPanel.classList.add('open');
       chatButton.classList.add('open');
+      // Track chat opened event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'chat_opened', {
+          'event_category': 'engagement',
+          'event_label': 'Pre-Interview Julie Chatbot'
+        });
+      }
     } else {
       chatPanel.classList.remove('open');
       chatButton.classList.remove('open');
+      // Track chat closed event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'chat_closed', {
+          'event_category': 'engagement',
+          'event_label': 'Pre-Interview Julie Chatbot'
+        });
+      }
     }
   }
 
