@@ -184,6 +184,64 @@
     line-height: 1.65;
   }
 
+  /* ========== HERO CHATBOT ========== */
+  .hero-chatbot {
+    margin-top: 48px;
+    background: linear-gradient(145deg, rgba(250,248,245,0.95), rgba(245,242,237,0.95));
+    border: 1px solid rgba(160,148,135,0.2);
+    border-radius: 12px;
+    padding: 28px;
+    max-width: 680px;
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.05),
+      inset 0 1px 2px rgba(255,255,255,0.4);
+  }
+
+  .chatbot-header {
+    margin-bottom: 20px;
+  }
+
+  .chatbot-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--magenta);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .chatbot-subtitle {
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+
+  .chatbot-embed {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    height: 500px;
+  }
+
+  .hero-chatbot-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .hero-chatbot {
+      margin-top: 32px;
+      padding: 20px;
+    }
+
+    .chatbot-embed {
+      height: 400px;
+    }
+  }
+
   .tl-wrap {
     padding: 48px 0 92px;
     position: relative;
@@ -1174,6 +1232,22 @@
       <h1 class="hero-title">Every good idea starts with a question.</h1>
       <p class="hero-sub">What if? Why not.</p>
       <p class="page-desc">Strategy. Storytelling. Innovation. AI builds. Narrative systems.</p>
+
+      <!-- Pre-Interview Me Chatbot -->
+      <div class="hero-chatbot">
+        <div class="chatbot-header">
+          <div class="chatbot-label">Pre-Interview Me</div>
+          <div class="chatbot-subtitle">Ask my AI counterpart about my career, projects, or how I think.</div>
+        </div>
+        <div class="chatbot-embed">
+          <iframe
+            src="https://www.chatbase.co/chatbot-iframe/QgALQ5miAJr6jNuRVaYdU"
+            title="Pre-Interview Julie chatbot"
+            loading="lazy"
+            class="hero-chatbot-iframe">
+          </iframe>
+        </div>
+      </div>
     </section>
 
     <section class="tl-wrap">
@@ -1213,65 +1287,6 @@
         <div class="tl-date-col"><span class="tl-tag">Patents</span></div>
         <div class="tl-line-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
         <div class="tl-content"><div class="tl-shell"><p class="tl-question">What if location unlocked everything?</p><span class="tl-hint">+</span><div class="tl-drawer"><p class="tl-answer">Two issued. Three pending. Two defensive publications.</p><p class="tl-answer">Webex Orbit (US 11,729,584) was first. I conceived it in 2019 inside Cisco's Innovate Everywhere contest. Designed the system, wrote the disclosure, did the UX. Issued 2023.</p><p class="tl-answer">Since then: authentication, video collaboration, low-code security, conversation comprehension. Same Cisco innovation team across four years.</p><div class="tl-artifact"><div class="tl-artifact-img" style="height: 550px; background: #ffffff; padding: 30px;"><img src="US20220408217A1-20221222-D00005.png" alt="Patent Cube Diagram" style="width: 100%; height: 100%; object-fit: contain;"/></div><div class="tl-artifact-footer"><span class="tl-artifact-label">US Patent 11,729,584</span><a class="tl-artifact-link" href="innovation.html">View full portfolio &rarr;</a></div></div><span class="tl-close">&#x2212; Close</span></div></div></div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-date-col"><span class="tl-tag">Experiments</span></div>
-        <div class="tl-line-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content"><div class="tl-shell"><p class="tl-question">Why tell when AI can show?</p><span class="tl-hint">+</span><div class="tl-drawer"><p class="tl-answer">October 2024: Fed my portfolio to NotebookLM for Netflix. It made a podcast about why I'd fit. February 2025: Built AI Julie for Meta. A chatbot trained on my work that interviewed for me. Two experiments in using AI to demonstrate fit. Because the best time to test new approaches is before you need them.</p>
-<p style="font-size: 12px; color: var(--magenta); margin: 12px 0 8px; text-transform: uppercase; letter-spacing: 0.12em;">💬 Interactive demos — chat with AI Julie & listen to the audio résumé</p>
-<div class="tl-artifact ai-experiments">
-  <div class="experiment-cards">
-    <!-- Chatbot Card -->
-    <div class="experiment-card">
-      <div class="card-header">
-        <span class="card-label">Meta Application</span>
-        <span class="card-tool">Chatbase AI</span>
-      </div>
-      <h3 class="card-title">Pre-Interview Julie</h3>
-      <p class="card-description">A conversational AI trained on my portfolio for emerging experiences role</p>
-      <div class="chatbot-container">
-        <iframe
-          src="https://www.chatbase.co/chatbot-iframe/QgALQ5miAJr6jNuRVaYdU"
-          title="Pre-Interview Julie chatbot"
-          loading="lazy"
-          class="chatbot-iframe">
-        </iframe>
-      </div>
-      <a href="https://www.chatbase.co/chatbot-iframe/QgALQ5miAJr6jNuRVaYdU" target="_blank" rel="noopener noreferrer" class="card-cta">
-        Open chat &rarr;
-      </a>
-    </div>
-
-    <!-- Podcast Card -->
-    <div class="experiment-card">
-      <div class="card-header">
-        <span class="card-label">Netflix Application</span>
-        <span class="card-tool">NotebookLM</span>
-      </div>
-      <h3 class="card-title">Audio Résumé</h3>
-      <p class="card-description">AI-generated podcast analyzing fit from portfolio & job description</p>
-      <div class="audio-player">
-        <div class="audio-waveform">
-          <span class="waveform-bar"></span>
-          <span class="waveform-bar"></span>
-          <span class="waveform-bar"></span>
-          <span class="waveform-bar"></span>
-          <span class="waveform-bar"></span>
-          <span class="waveform-bar"></span>
-          <span class="waveform-bar"></span>
-          <span class="waveform-bar"></span>
-          <span class="waveform-bar"></span>
-          <span class="waveform-bar"></span>
-        </div>
-        <audio controls preload="none" src="portfolio_audio_1.mp4" class="styled-audio">
-          Your browser does not support the audio element.
-        </audio>
-        <p class="audio-duration">0:35 preview</p>
-      </div>
-    </div>
-  </div>
-</div><span class="tl-close">&#x2212; Close</span></div></div></div>
       </div>
 
             <div class="tl-item tl-now">
