@@ -203,9 +203,9 @@
   }
 
   .chat-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 30px;
     background: var(--magenta);
     border: none;
     box-shadow: 0 4px 12px rgba(255, 74, 150, 0.4);
@@ -213,8 +213,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     color: white;
+    white-space: nowrap;
   }
 
   .chat-button:hover {
@@ -224,18 +226,33 @@
 
   .chat-button .chat-icon {
     display: block;
+    flex-shrink: 0;
+  }
+
+  .chat-button .chat-text {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   .chat-button .close-icon {
     display: none;
+    flex-shrink: 0;
   }
 
-  .chat-button.open .chat-icon {
+  .chat-button.open .chat-icon,
+  .chat-button.open .chat-text {
     display: none;
   }
 
   .chat-button.open .close-icon {
     display: block;
+  }
+
+  .chat-button.open {
+    width: 48px;
+    padding: 0;
   }
 
   .chat-panel {
@@ -320,8 +337,14 @@
     }
 
     .chat-button {
-      width: 56px;
-      height: 56px;
+      height: 44px;
+      padding: 0 16px;
+      font-size: 12px;
+    }
+
+    .chat-button.open {
+      width: 44px;
+      padding: 0;
     }
 
     .chat-panel {
@@ -1826,10 +1849,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Floating Chatbot Widget -->
 <div id="chatWidget" class="chat-widget">
   <button id="chatButton" class="chat-button" aria-label="Open chat">
-    <svg class="chat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <svg class="chat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
     </svg>
-    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <span class="chat-text">PRE-INTERVIEW ME</span>
+    <svg class="close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <line x1="18" y1="6" x2="6" y2="18"></line>
       <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
