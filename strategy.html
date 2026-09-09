@@ -766,15 +766,13 @@
 
   .julie-page .carousel-slide {
     min-width: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
   }
 
   .julie-page .carousel-slide.active {
-    opacity: 1;
+    display: flex;
   }
 
   .julie-page .carousel-slide .evidence-img-container {
@@ -1240,56 +1238,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  let currentSlideIndex = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-  const carouselDots = document.querySelectorAll('.carousel-dots .dot');
-  const prevBtn = document.querySelector('.carousel-prev');
-  const nextBtn = document.querySelector('.carousel-next');
-
-  function showSlide(n) {
-    if (slides.length === 0 || carouselDots.length === 0) return;
-
-    slides[currentSlideIndex].classList.remove('active');
-    carouselDots[currentSlideIndex].classList.remove('active');
-
-    currentSlideIndex = (n + slides.length) % slides.length;
-
-    slides[currentSlideIndex].classList.add('active');
-    carouselDots[currentSlideIndex].classList.add('active');
-  }
-
-  function moveSlide(n) {
-    showSlide(currentSlideIndex + n);
-  }
-
-  // Add event listeners for navigation buttons
-  if (prevBtn) {
-    prevBtn.addEventListener('click', function() {
-      moveSlide(-1);
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', function() {
-      moveSlide(1);
-    });
-  }
-
-  // Add event listeners for dots
-  carouselDots.forEach((dot, index) => {
-    dot.addEventListener('click', function() {
-      showSlide(index);
-    });
-  });
-
-  // Initialize the first slide
-  if (slides.length > 0) {
-    showSlide(0);
-  }
-
-  // Optional: Auto-advance carousel every 10 seconds
-  // setInterval(() => moveSlide(1), 10000);
-
   // Lightbox functionality (using event delegation)
   const lightbox = document.getElementById('imageLightbox');
   const lightboxImg = document.getElementById('lightboxImg');

@@ -283,7 +283,7 @@
     }
 
     // Dots
-    const dots = document.querySelectorAll('.carousel-indicators .dot');
+    const dots = document.querySelectorAll('.carousel-dots .dot');
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => showSlide(index + 1));
     });
