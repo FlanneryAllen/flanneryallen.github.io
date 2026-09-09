@@ -678,6 +678,82 @@
   }
 
   /* ============================================================
+     RELATED WORK
+     ============================================================ */
+  .related-work {
+    max-width: var(--max);
+    margin: 80px auto 0;
+    padding: 60px 20px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .related-header {
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: 30px;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .related-card {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+    text-decoration: none;
+    transition: all var(--ease);
+    display: block;
+  }
+
+  .related-card:hover {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: var(--magenta);
+    transform: translateY(-2px);
+  }
+
+  .related-tag {
+    font-size: 10px;
+    font-weight: var(--weight-bold);
+    color: var(--magenta);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: 12px;
+  }
+
+  .related-title {
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: var(--leading-tight);
+  }
+
+  .related-description {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: var(--leading-snug);
+  }
+
+  @media (max-width: 768px) {
+    .related-work {
+      margin-top: 60px;
+      padding-top: 40px;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  /* ============================================================
      SITE FOOTER
      ============================================================ */
   .site-footer {
@@ -996,6 +1072,28 @@
 
       <div class="mw-cta">
         <a href="https://newsroom.cisco.com/c/r/newsroom/en/us/authors/julie-allen.html" target="_blank" rel="noopener noreferrer" class="cs-link">View Cisco author page &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Related Work -->
+    <section class="related-work">
+      <div class="related-header">Related Work</div>
+      <div class="related-grid">
+        <a href="strategy.html" class="related-card">
+          <div class="related-tag">Strategy</div>
+          <div class="related-title">Cisco AI Narrative</div>
+          <div class="related-description">Strategic messaging framework. The bigger picture behind the stories.</div>
+        </a>
+        <a href="agency.html" class="related-card">
+          <div class="related-tag">Agency</div>
+          <div class="related-title">Creative Work</div>
+          <div class="related-description">Award-winning campaigns. Where the editorial voice started.</div>
+        </a>
+        <a href="innovation.html" class="related-card">
+          <div class="related-tag">Innovation</div>
+          <div class="related-title">Patents & Systems</div>
+          <div class="related-description">Technical writing meets invention. Seven patents from complex ideas.</div>
+        </a>
       </div>
     </section>
 
