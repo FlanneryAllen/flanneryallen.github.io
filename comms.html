@@ -636,16 +636,16 @@
 
   /* ========== MOBILE ========== */
   @media (max-width: 760px) {
-    .wrap { width: 100%; padding: 0 16px; }
-    .hero { padding-top: 36px; }
+    .wrap { width: 100%; padding: 0 var(--space-sm); }
+    .hero { padding-top: var(--space-lg); }
 
     .cs-item {
       grid-template-columns: 1fr;
       gap: 0;
-      padding-top: 32px;
+      padding-top: var(--space-lg);
       border-top: 1px solid rgba(255,74,150,0.22);
       margin-top: 0;
-      margin-bottom: 48px;
+      margin-bottom: var(--space-xl);
     }
     .cs-item:first-of-type {
       border-top: none;
@@ -655,13 +655,13 @@
     .cs-num-col {
       text-align: left;
       padding-top: 0;
-      margin-bottom: 20px;
+      margin-bottom: var(--space-md);
       display: flex;
       align-items: baseline;
-      gap: 14px;
+      gap: var(--space-sm);
       flex-wrap: wrap;
     }
-    .cs-num { font-size: 28px; }
+    .cs-num { font-size: var(--text-2xl); }
     .cs-year { margin-top: 0; }
     .cs-tag { margin-top: 0; }
 
@@ -781,13 +781,13 @@
 
   @media (max-width: 768px) {
     .related-work {
-      margin-top: 60px;
-      padding-top: 40px;
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
     }
 
     .related-grid {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: var(--space-sm);
     }
   }
 

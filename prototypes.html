@@ -666,16 +666,16 @@
   /* ========== MOBILE ========== */
   @media (max-width: 768px) {
     .julie-page .hero {
-      padding-top: 36px;
+      padding-top: var(--space-lg);
     }
 
     .julie-page .cs-item {
       grid-template-columns: 1fr;
       gap: 0;
-      padding-top: 26px;
+      padding-top: var(--space-md);
       border-top: 1px solid rgba(255,74,150,0.22);
       margin-top: 0;
-      margin-bottom: 40px;
+      margin-bottom: var(--space-xl);
     }
 
     .julie-page .cs-item:first-of-type {
@@ -686,10 +686,10 @@
     .julie-page .cs-num-col {
       text-align: left;
       padding-top: 0;
-      margin-bottom: 14px;
+      margin-bottom: var(--space-sm);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: var(--space-xs);
     }
 
     .julie-page .cs-num-col::before {
@@ -795,13 +795,13 @@
 
   @media (max-width: 768px) {
     .related-work {
-      margin-top: 60px;
-      padding-top: 40px;
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
     }
 
     .related-grid {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: var(--space-sm);
     }
   }
 
@@ -1103,12 +1103,12 @@
   }
 
   .modal-header h2 {
-    font-size: 20px;
+    font-size: var(--text-lg);
   }
 
   .modal-close {
-    top: 10px;
-    right: 10px;
+    top: var(--space-xs);
+    right: var(--space-xs);
   }
 }
 </style>

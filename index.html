@@ -370,14 +370,14 @@
 
   @media (max-width: 768px) {
     .chat-widget {
-      bottom: 16px;
-      right: 16px;
+      bottom: var(--space-sm);
+      right: var(--space-sm);
     }
 
     .chat-button {
       height: 44px;
-      padding: 0 16px;
-      font-size: 12px;
+      padding: 0 var(--space-sm);
+      font-size: var(--text-xs);
     }
 
     .chat-button.open {
@@ -395,8 +395,8 @@
 
   @media (max-width: 480px) {
     .chat-panel {
-      width: calc(100vw - 16px);
-      right: -8px;
+      width: calc(100vw - var(--space-sm));
+      right: calc(-1 * var(--space-xs));
       height: 70vh;
       max-height: 500px;
     }
@@ -1077,17 +1077,17 @@
 
   @media (max-width: 760px) {
     /* Wrap goes full-width with internal padding so artifacts can bleed out */
-    .wrap { width: 100%; padding: 0 14px; }
-    .hero { padding-top: 36px; }
+    .wrap { width: 100%; padding: 0 var(--space-sm); }
+    .hero { padding-top: var(--space-lg); }
 
     /* Drop the timeline grid on mobile — single column stack */
     .tl-item {
       grid-template-columns: 1fr;
       gap: 0;
-      padding-top: 26px;
+      padding-top: var(--space-md);
       border-top: 1px solid rgba(255,74,150,0.22);
       margin-top: 0;
-      margin-bottom: 24px;
+      margin-bottom: var(--space-md);
     }
     .tl-item:first-of-type {
       border-top: none;
@@ -1098,10 +1098,10 @@
     .tl-date-col {
       text-align: left;
       padding-top: 0;
-      margin-bottom: 14px;
+      margin-bottom: var(--space-sm);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: var(--space-xs);
     }
     .tl-date-col::before {
       content: "";
@@ -1821,12 +1821,12 @@
   }
 
   .modal-header h2 {
-    font-size: 20px;
+    font-size: var(--text-lg);
   }
 
   .modal-close {
-    top: 10px;
-    right: 10px;
+    top: var(--space-xs);
+    right: var(--space-xs);
   }
 
   /* Lightbox Modal Styles */
@@ -1910,9 +1910,9 @@
 
   @media (max-width: 768px) {
     .lightbox-close {
-      top: 10px;
-      right: 20px;
-      font-size: 32px;
+      top: var(--space-xs);
+      right: var(--space-md);
+      font-size: var(--text-2xl);
     }
 
     .lightbox-content {
@@ -1921,8 +1921,8 @@
     }
 
     .lightbox-caption {
-      font-size: 14px;
-      padding: 0 15px;
+      font-size: var(--text-sm);
+      padding: 0 var(--space-sm);
     }
   }
 }

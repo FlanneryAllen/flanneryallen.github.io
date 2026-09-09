@@ -484,30 +484,30 @@
   }
 
   @media (max-width: 760px) {
-    .julie-page .wrap { width: 100%; padding: 0 14px; }
-    .julie-page .hero { padding-top: 36px; }
+    .julie-page .wrap { width: 100%; padding: 0 var(--space-sm); }
+    .julie-page .hero { padding-top: var(--space-lg); }
 
     .julie-page .era-grid {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: var(--space-lg);
     }
 
     .julie-page .link-row {
       flex-direction: column;
       align-items: flex-start;
-      padding: 14px 18px;
-      gap: 10px;
+      padding: var(--space-sm) var(--space-lg);
+      gap: var(--space-xs);
     }
 
     .site-footer {
-      margin-top: 40px;
-      padding: 30px 0 20px;
+      margin-top: var(--space-xl);
+      padding: var(--space-lg) 0 var(--space-md);
     }
 
     .footer-nav {
       flex-direction: column;
-      gap: 30px;
-      margin-bottom: 30px;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
     }
 
     .footer-meta {
@@ -581,13 +581,13 @@
 
   @media (max-width: 768px) {
     .related-work {
-      margin-top: 60px;
-      padding-top: 40px;
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
     }
 
     .related-grid {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: var(--space-sm);
     }
   }
 

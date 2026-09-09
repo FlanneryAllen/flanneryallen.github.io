@@ -378,9 +378,9 @@
   footer a:hover { border-bottom-color: var(--magenta); }
 
   @media (max-width: 768px) {
-    .hero { padding-top: 36px; }
-    .content-section { padding: 48px 0; }
-    .diagram-img { padding: 32px 24px; }
+    .hero { padding-top: var(--space-lg); }
+    .content-section { padding: var(--space-xl) 0; }
+    .diagram-img { padding: var(--space-lg) var(--space-md); }
   }
 
   /* Carousel Styles */
@@ -506,11 +506,11 @@
 
   @media (max-width: 768px) {
     .carousel-container { height: 380px; }
-    .carousel-slide { padding: 20px; }
+    .carousel-slide { padding: var(--space-md); }
     .carousel-slide img { max-width: 92%; max-height: 92%; }
-    .carousel-nav { width: 36px; height: 36px; font-size: 20px; }
-    .carousel-prev { left: 8px; }
-    .carousel-next { right: 8px; }
+    .carousel-nav { width: 36px; height: 36px; font-size: var(--text-lg); }
+    .carousel-prev { left: var(--space-xs); }
+    .carousel-next { right: var(--space-xs); }
   }
 
   /* Lightbox Modal Styles */
@@ -592,9 +592,9 @@
 
   @media (max-width: 768px) {
     .lightbox-close {
-      top: 10px;
-      right: 20px;
-      font-size: 32px;
+      top: var(--space-xs);
+      right: var(--space-md);
+      font-size: var(--text-2xl);
     }
 
     .lightbox-content {
@@ -603,23 +603,23 @@
     }
 
     .lightbox-caption {
-      font-size: 14px;
-      padding: 0 15px;
+      font-size: var(--text-sm);
+      padding: 0 var(--space-sm);
     }
 
     .site-footer {
-      margin-top: 40px;
-      padding: 30px 0 20px;
+      margin-top: var(--space-xl);
+      padding: var(--space-lg) 0 var(--space-md);
     }
 
     .footer-nav {
       flex-direction: column;
-      gap: 30px;
-      margin-bottom: 30px;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
     }
 
     .footer-meta {
-      padding-top: 20px;
+      padding-top: var(--space-md);
     }
   }
 
@@ -689,13 +689,13 @@
 
   @media (max-width: 768px) {
     .related-work {
-      margin-top: 60px;
-      padding-top: 40px;
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
     }
 
     .related-grid {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: var(--space-sm);
     }
   }
 
