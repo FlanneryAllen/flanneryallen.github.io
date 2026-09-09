@@ -660,6 +660,99 @@
     }
 
     .mw-list { grid-template-columns: 1fr; }
+
+    .site-footer {
+      margin-top: 40px;
+      padding: 30px 0 20px;
+    }
+
+    .footer-nav {
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-meta {
+      padding-top: 20px;
+    }
+  }
+
+  /* ============================================================
+     SITE FOOTER
+     ============================================================ */
+  .site-footer {
+    margin-top: 80px;
+    padding: 60px 0 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 80px;
+    margin-bottom: 60px;
+  }
+
+  .footer-section {
+    flex: 0 0 auto;
+  }
+
+  .footer-heading {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    font-weight: var(--weight-normal);
+    color: var(--text);
+    text-decoration: none;
+    transition: color var(--ease);
+  }
+
+  .footer-links a:hover {
+    color: var(--magenta);
+  }
+
+  .footer-meta {
+    padding-top: 40px;
+    border-top: 1px solid var(--ghost-3);
+    text-align: center;
+  }
+
+  .footer-meta p {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .footer-meta a {
+    color: var(--magenta);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .footer-meta a:hover {
+    border-bottom-color: var(--magenta);
   }
 </style>
 </head>
@@ -906,11 +999,36 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <section class="footer">
-      <a href="index.html" class="footer-back-link">&larr; Back to the work</a>
-      <span class="footer-note">Julie Flannery Allen &middot; flanneryallen.com</span>
-    </section>
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-nav">
+          <div class="footer-section">
+            <h3 class="footer-heading">Work</h3>
+            <ul class="footer-links">
+              <li><a href="strategy.html">Strategy</a></li>
+              <li><a href="prototypes.html">Prototypes</a></li>
+              <li><a href="comms.html">Communications</a></li>
+              <li><a href="agency.html">Agency</a></li>
+              <li><a href="innovation.html">Innovation</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3 class="footer-heading">Connect</h3>
+            <ul class="footer-links">
+              <li><a href="about.html">About</a></li>
+              <li><a href="mailto:jflanneryallen@gmail.com">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <p>© 2026 Flannery Allen ·
+            <a href="privacy.html">Privacy</a> ·
+            <a href="https://github.com/FlanneryAllen/flanneryallen.github.io" target="_blank" rel="noopener noreferrer">Source</a>
+          </p>
+        </div>
+      </div>
+    </footer>
 
   </div>
 </div>
