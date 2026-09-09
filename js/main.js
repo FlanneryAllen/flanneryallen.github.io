@@ -42,8 +42,8 @@
       if (item.classList.contains('tl-now')) return;
 
       item.addEventListener('click', function(e) {
-        // Don't toggle if clicking on links or close button
-        if (e.target.closest('a') || e.target.closest('.tl-close')) return;
+        // Don't toggle if clicking on links, close button, or video
+        if (e.target.closest('a') || e.target.closest('.tl-close') || e.target.closest('video')) return;
 
         // Close other open items first (accordion behavior)
         if (currentlyOpenItem && currentlyOpenItem !== this) {
