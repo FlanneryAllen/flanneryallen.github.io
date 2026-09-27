@@ -1,5 +1,29 @@
 <!-- ===== PASTE EVERYTHING BELOW INTO A SQUARESPACE CODE BLOCK ===== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JNE45ESYBK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-JNE45ESYBK');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agency Life — Flannery Allen</title>
+
+<!-- Security Headers -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube-nocookie.com https://www.chatbase.co https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube-nocookie.com https://www.chatbase.co https://narrative-intelligence-demo.netlify.app; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -22,6 +46,44 @@
     --body: 'Inter', Arial, sans-serif;
     --max: 1220px;
     --ease: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Spacing Scale */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+    --space-2xl: 64px;
+    --space-3xl: 80px;
+    --space-4xl: 120px;
+
+    /* Typography Scale */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 18px;
+    --text-xl: 24px;
+    --text-2xl: 32px;
+    --text-3xl: 48px;
+    --text-4xl: 64px;
+
+    /* Typography - Weights */
+    --weight-normal: 400;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Typography - Tracking */
+    --tracking-tight: -0.04em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+    --tracking-wider: 0.12em;
+    --tracking-widest: 0.16em;
+
+    /* Typography - Leading */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.7;
 
     position: relative;
     isolation: isolate;
@@ -58,8 +120,8 @@
   .julie-page a { color: inherit; text-decoration: none; }
 
   .julie-page .wrap {
-    width: min(calc(100% - 30px), var(--max));
-    margin: 0 auto;
+    width: min(calc(100% - 130px), var(--max));
+    margin: 0 auto 0 100px;
     position: relative;
     z-index: 2;
   }
@@ -398,22 +460,213 @@
     text-transform: uppercase;
   }
 
+  .julie-page .footer-back-link {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 16px;
+    transition: color var(--ease), transform var(--ease);
+  }
+  .julie-page .footer-back-link:hover {
+    color: var(--magenta);
+    transform: translateX(-3px);
+  }
+
   /* ========== MOBILE ========== */
+  @media (max-width: 768px) {
+    .julie-page .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+  }
+
   @media (max-width: 760px) {
-    .julie-page .wrap { width: 100%; padding: 0 14px; }
-    .julie-page .hero { padding-top: 36px; }
+    .julie-page .wrap { width: 100%; padding: 0 var(--space-sm); }
+    .julie-page .hero { padding-top: var(--space-lg); }
 
     .julie-page .era-grid {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: var(--space-lg);
     }
 
     .julie-page .link-row {
       flex-direction: column;
       align-items: flex-start;
-      padding: 14px 18px;
-      gap: 10px;
+      padding: var(--space-sm) var(--space-lg);
+      gap: var(--space-xs);
     }
+
+    .site-footer {
+      margin-top: var(--space-xl);
+      padding: var(--space-lg) 0 var(--space-md);
+    }
+
+    .footer-nav {
+      flex-direction: column;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer-meta {
+      padding-top: 20px;
+    }
+  }
+
+  /* ============================================================
+     RELATED WORK
+     ============================================================ */
+  .related-work {
+    max-width: var(--max);
+    margin: 80px auto 0;
+    padding: 60px 20px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .related-header {
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: 30px;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .related-card {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+    text-decoration: none;
+    transition: all var(--ease);
+    display: block;
+  }
+
+  .related-card:hover {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: var(--magenta);
+    transform: translateY(-2px);
+  }
+
+  .related-tag {
+    font-size: 10px;
+    font-weight: var(--weight-bold);
+    color: var(--magenta);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: 12px;
+  }
+
+  .related-title {
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: var(--leading-tight);
+  }
+
+  .related-description {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: var(--leading-snug);
+  }
+
+  @media (max-width: 768px) {
+    .related-work {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+  }
+
+  /* ============================================================
+     SITE FOOTER
+     ============================================================ */
+  .site-footer {
+    margin-top: 80px;
+    padding: 60px 0 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 80px;
+    margin-bottom: 60px;
+  }
+
+  .footer-section {
+    flex: 0 0 auto;
+  }
+
+  .footer-heading {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    font-weight: var(--weight-normal);
+    color: var(--text);
+    text-decoration: none;
+    transition: color var(--ease);
+  }
+
+  .footer-links a:hover {
+    color: var(--magenta);
+  }
+
+  .footer-meta {
+    padding-top: 40px;
+    border-top: 1px solid var(--ghost-3);
+    text-align: center;
+  }
+
+  .footer-meta p {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .footer-meta a {
+    color: var(--magenta);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .footer-meta a:hover {
+    border-bottom-color: var(--magenta);
   }
 </style>
 
@@ -457,7 +710,7 @@
 
       <div class="featured-video">
         <div class="video-tile">
-          <iframe src="https://www.youtube.com/embed/FA213hyHm0Y?si=popdOk5-jK58Gq3r" title="JCPenney Oscars Spot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube-nocookie.com/embed/FA213hyHm0Y?si=popdOk5-jK58Gq3r" title="JCPenney Oscars Spot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
 
@@ -494,7 +747,7 @@
 
       <div class="link-row">
         <span class="link-row-label">Founder &amp; Creative Director</span>
-        <a href="https://www.flanneryallen.com/zing" target="_blank" rel="noopener" class="cs-link">View Case Study &rarr;</a>
+        <a href="zing.html" class="cs-link">View Case Study &rarr;</a>
       </div>
     </section>
 
@@ -502,17 +755,66 @@
     <section class="through-line">
       <div class="through-label">The Through-line</div>
       <h2 class="through-title">The brief arrives. You find the idea. You pitch it. You revise it. You ship it. That loop doesn't leave you.</h2>
-      <p class="through-body">
-        A patent is a brief with a longer deadline. A startup is a brief you wrote yourself. The idea is still the job.
-      </p>
     </section>
 
-    <!-- FOOTER -->
-    <section class="footer">
-      <span class="footer-note">Julie Flannery Allen &middot; flanneryallen.com</span>
+    <!-- Related Work -->
+    <section class="related-work">
+      <div class="related-header">Related Work</div>
+      <div class="related-grid">
+        <a href="comms.html" class="related-card">
+          <div class="related-tag">Communications</div>
+          <div class="related-title">Cisco Newsroom</div>
+          <div class="related-description">Editorial voice meets enterprise communications. Making boring delightfully engaging.</div>
+        </a>
+        <a href="strategy.html" class="related-card">
+          <div class="related-tag">Strategy</div>
+          <div class="related-title">Cisco AI Narrative</div>
+          <div class="related-description">Strategic messaging framework. Same brief thinking, different scale.</div>
+        </a>
+        <a href="prototypes.html" class="related-card">
+          <div class="related-tag">Prototypes</div>
+          <div class="related-title">Narrative Agent</div>
+          <div class="related-description">Building AI that understands story structure. Creative problem-solving with code.</div>
+        </a>
+      </div>
     </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-nav">
+          <div class="footer-section">
+            <h3 class="footer-heading">Work</h3>
+            <ul class="footer-links">
+              <li><a href="strategy.html">Strategy</a></li>
+              <li><a href="prototypes.html">Prototypes</a></li>
+              <li><a href="comms.html">Communications</a></li>
+              <li><a href="agency.html">Agency</a></li>
+              <li><a href="innovation.html">Innovation</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3 class="footer-heading">Connect</h3>
+            <ul class="footer-links">
+              <li><a href="about.html">About</a></li>
+              <li><a href="mailto:jflanneryallen@gmail.com">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <p>© 2026 Flannery Allen ·
+            <a href="privacy.html">Privacy</a> ·
+            <a href="https://github.com/FlanneryAllen/flanneryallen.github.io" target="_blank" rel="noopener noreferrer">Source</a>
+          </p>
+        </div>
+      </div>
+    </footer>
 
   </div>
 </div>
 
 <!-- ===== END PASTE ===== -->
+
+<script src="js/main.js"></script>
+</body>
+</html>

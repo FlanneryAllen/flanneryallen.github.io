@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNE45ESYBK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JNE45ESYBK');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JCPenney Oscars Campaign • Julie Flannery Allen</title>
+
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube-nocookie.com https://www.chatbase.co https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube-nocookie.com https://www.chatbase.co https://narrative-intelligence-demo.netlify.app; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,7 +32,7 @@
     
     <!-- HEADER -->
     <section class="hero">
-      <a href="agency.html" class="back-link">&larr; Back to Agency Life</a>
+      <a href="index.html" class="back-link">&larr; Back to the work</a>
       <div class="page-label">Featured Campaign</div>
       <h1 class="hero-title">JCPENNEY</h1>
       <div class="hero-sub">When it fits, you feel it.</div>
@@ -32,7 +49,7 @@
       <div class="video-grid">
         <div class="video-item">
           <div class="video-tile">
-            <iframe src="https://www.youtube.com/embed/FA213hyHm0Y?si=popdOk5-jK58Gq3r" allowfullscreen></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/FA213hyHm0Y?si=popdOk5-jK58Gq3r" allowfullscreen></iframe>
           </div>
           <div class="video-caption">
             <div class="video-title">You know it when it hugs your hips.</div>
@@ -41,7 +58,7 @@
         
         <div class="video-item">
           <div class="video-tile">
-            <iframe src="https://www.youtube.com/embed/q0dfMPVhS2c?si=popdOk5-jK58Gq3r" allowfullscreen></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/q0dfMPVhS2c?si=popdOk5-jK58Gq3r" allowfullscreen></iframe>
           </div>
           <div class="video-caption">
             <div class="video-title">You feel it when it fits so well.</div>
@@ -50,7 +67,7 @@
         
         <div class="video-item">
           <div class="video-tile">
-            <iframe src="https://www.youtube.com/embed/et6P3dwxbgQ?si=popdOk5-jK58Gq3r" allowfullscreen></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/et6P3dwxbgQ?si=popdOk5-jK58Gq3r" allowfullscreen></iframe>
           </div>
           <div class="video-caption">
             <div class="video-title">A fit that feels like fate.</div>
@@ -121,8 +138,8 @@
   .julie-page a { color: inherit; text-decoration: none; }
 
   .julie-page .wrap {
-    width: min(calc(100% - 30px), var(--max));
-    margin: 0 auto;
+    width: min(calc(100% - 130px), var(--max));
+    margin: 0 auto 0 100px;
     position: relative;
     z-index: 2;
   }
@@ -253,6 +270,13 @@
   }
 
   /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .julie-page .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+  }
+
   @media (max-width: 640px) {
     .julie-page .video-grid {
       grid-template-columns: 1fr;
@@ -265,5 +289,6 @@
   }
 </style>
 
+<script src="js/main.js"></script>
 </body>
 </html>

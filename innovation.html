@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JNE45ESYBK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JNE45ESYBK');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovation — Flannery Allen</title>
+<meta name="description" content="A writer's patent portfolio. Two issued. Three pending. Seven provisionals at Principal AI.">
+
+<link rel="icon" type="image/png" href="/smiley-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #d4d2cc;
+    --bg-2: #cbcac3;
+    --bg-3: #c3c1ba;
+    --paper-fiber: rgba(255,255,255,0.045);
+    --text: #53504b;
+    --text-soft: #716d67;
+    --text-faint: rgba(83,80,75,0.54);
+    --ghost: rgba(255,255,255,0.28);
+    --magenta: #ff4a96;
+    --magenta-deep: #ea3d86;
+    --line: rgba(255,255,255,0.16);
+    --display: 'Archivo Black', Arial Black, sans-serif;
+    --body: 'Inter', Arial, sans-serif;
+    --max: 1220px;
+    --ease: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Spacing Scale - Multiples of 8px */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+    --space-2xl: 64px;
+    --space-3xl: 80px;
+    --space-4xl: 120px;
+
+    /* Typography Scale - Modular scale */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 18px;
+    --text-xl: 24px;
+    --text-2xl: 32px;
+    --text-3xl: 48px;
+    --text-4xl: 64px;
+
+    /* Typography - Weights */
+    --weight-normal: 400;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Typography - Tracking */
+    --tracking-tight: -0.04em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.08em;
+    --tracking-wider: 0.12em;
+    --tracking-widest: 0.16em;
+
+    /* Typography - Leading */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.6;
+    --leading-relaxed: 1.7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family: var(--body);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 35%),
+      radial-gradient(circle at 80% 10%, rgba(255,255,255,0.04), transparent 28%),
+      radial-gradient(circle at 60% 80%, rgba(255,255,255,0.035), transparent 32%),
+      repeating-linear-gradient(0deg, transparent 0 39px, var(--paper-fiber) 39px 40px),
+      repeating-linear-gradient(90deg, transparent 0 59px, rgba(255,255,255,0.018) 59px 60px),
+      linear-gradient(to bottom, var(--bg), var(--bg-2) 52%, var(--bg-3));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+    background-size: 8px 8px;
+    mix-blend-mode: soft-light;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .page { position: relative; isolation: isolate; overflow: hidden; }
+  .wrap {
+    width: min(calc(100% - 130px), var(--max));
+    margin: 0 auto 0 100px;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+  }
+
+  .hero {
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 32px;
+    transition: transform var(--ease);
+  }
+
+  .back-link:hover { transform: translateX(-4px); }
+
+  .page-label {
+    color: var(--magenta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: var(--display);
+    color: var(--magenta);
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    max-width: 18ch;
+    margin-bottom: 12px;
+  }
+
+  .hero-sub {
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .content-section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .content-section:last-of-type { border-bottom: none; }
+
+  .section-intro {
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.7;
+    color: var(--text-soft);
+    max-width: 720px;
+    margin-bottom: 48px;
+  }
+
+  .patent-feature {
+    margin-bottom: 80px;
+  }
+
+  .patent-title {
+    font-family: var(--display);
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .patent-meta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--magenta);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .patent-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text);
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  .patent-body p { margin-bottom: 18px; }
+  .patent-body p:last-child { margin-bottom: 0; }
+
+  .diagram-showcase {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .diagram-img {
+    width: 100%;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(250,248,245,0.95));
+  }
+
+  .diagram-img img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+  }
+
+  .diagram-caption {
+    padding: 16px 24px;
+    background: rgba(255,255,255,0.5);
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--text-soft);
+    font-style: italic;
+    text-align: center;
+  }
+
+  .patent-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid var(--magenta);
+    color: var(--magenta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    transition: all var(--ease);
+  }
+
+  .patent-link:hover {
+    background: var(--magenta);
+    color: #ffffff;
+  }
+
+  .section-heading {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 32px;
+  }
+
+  .patent-list {
+    list-style: none;
+    max-width: 820px;
+  }
+
+  .patent-list li {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .patent-list li:last-child { border-bottom: none; }
+
+  .patent-list-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--magenta);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  .patent-list-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .patent-list-meta {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+  }
+
+  .patent-list-link {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--magenta);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color var(--ease);
+  }
+
+  .patent-list-link:hover { color: var(--magenta-deep); }
+
+  .closing-statement {
+    font-family: var(--display);
+    font-size: clamp(24px, 3.5vw, 36px);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    max-width: 24ch;
+    margin: 64px 0;
+  }
+
+  footer {
+    margin-top: 60px;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 20px;
+    transition: color var(--ease), transform var(--ease);
+  }
+
+  .footer-back-link:hover {
+    color: var(--magenta);
+    transform: translateX(-3px);
+  }
+
+  footer p {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.08em;
+  }
+
+  footer a {
+    color: var(--magenta);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  footer a:hover { border-bottom-color: var(--magenta); }
+
+  @media (max-width: 768px) {
+    .hero { padding-top: var(--space-lg); }
+    .content-section { padding: var(--space-xl) 0; }
+    .diagram-img { padding: var(--space-lg) var(--space-md); }
+  }
+
+  /* Carousel Styles */
+  .tl-carousel {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(250,248,245,0.98));
+  }
+
+  .carousel-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+
+  .carousel-slide.active {
+    display: flex;
+  }
+
+  .carousel-slide img {
+    max-width: 95%;
+    max-height: 95%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.08));
+  }
+
+  .carousel-caption {
+    color: var(--text-soft);
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+    max-width: 720px;
+    line-height: 1.6;
+    margin: 16px auto 32px;
+  }
+
+  .carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    color: var(--text);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-nav:hover {
+    background: rgba(255,255,255,1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .carousel-prev {
+    left: 16px;
+  }
+
+  .carousel-next {
+    right: 16px;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .carousel-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(83,80,75,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dots .dot.active {
+    background: var(--magenta);
+    transform: scale(1.2);
+  }
+
+  .carousel-dots .dot:hover {
+    background: rgba(83,80,75,0.5);
+  }
+
+  @media (max-width: 768px) {
+    .carousel-container { height: 380px; }
+    .carousel-slide { padding: var(--space-md); }
+    .carousel-slide img { max-width: 92%; max-height: 92%; }
+    .carousel-nav { width: 36px; height: 36px; font-size: var(--text-lg); }
+    .carousel-prev { left: var(--space-xs); }
+    .carousel-next { right: var(--space-xs); }
+  }
+
+  /* Lightbox Modal Styles */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding: 50px 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95);
+  }
+
+  .lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease;
+  }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 300;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  .lightbox-close:hover,
+  .lightbox-close:focus {
+    color: var(--magenta);
+  }
+
+  .lightbox-caption {
+    margin: 20px auto;
+    display: block;
+    max-width: 700px;
+    text-align: center;
+    color: #ffffff;
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .lightbox-caption strong {
+    font-family: var(--body);
+    font-weight: 600;
+  }
+
+  /* Clickable cursor for carousel images */
+  .carousel-slide img {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .carousel-slide img:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .lightbox-close {
+      top: var(--space-xs);
+      right: var(--space-md);
+      font-size: var(--text-2xl);
+    }
+
+    .lightbox-content {
+      max-width: 95%;
+      max-height: 80vh;
+    }
+
+    .lightbox-caption {
+      font-size: var(--text-sm);
+      padding: 0 var(--space-sm);
+    }
+
+    .site-footer {
+      margin-top: var(--space-xl);
+      padding: var(--space-lg) 0 var(--space-md);
+    }
+
+    .footer-nav {
+      flex-direction: column;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer-meta {
+      padding-top: var(--space-md);
+    }
+  }
+
+  /* ============================================================
+     RELATED WORK
+     ============================================================ */
+  .related-work {
+    max-width: var(--max);
+    margin: 80px auto 0;
+    padding: 60px 20px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .related-header {
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: 30px;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .related-card {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+    text-decoration: none;
+    transition: all var(--ease);
+    display: block;
+  }
+
+  .related-card:hover {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: var(--magenta);
+    transform: translateY(-2px);
+  }
+
+  .related-tag {
+    font-size: 10px;
+    font-weight: var(--weight-bold);
+    color: var(--magenta);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: 12px;
+  }
+
+  .related-title {
+    font-family: var(--display);
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: var(--leading-tight);
+  }
+
+  .related-description {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: var(--leading-snug);
+  }
+
+  @media (max-width: 768px) {
+    .related-work {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-xl);
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+  }
+
+  /* ============================================================
+     SITE FOOTER
+     ============================================================ */
+  .site-footer {
+    margin-top: 80px;
+    padding: 60px 0 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 80px;
+    margin-bottom: 60px;
+  }
+
+  .footer-section {
+    flex: 0 0 auto;
+  }
+
+  .footer-heading {
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    font-weight: var(--weight-normal);
+    color: var(--text);
+    text-decoration: none;
+    transition: color var(--ease);
+  }
+
+  .footer-links a:hover {
+    color: var(--magenta);
+  }
+
+  .footer-meta {
+    padding-top: 40px;
+    border-top: 1px solid var(--ghost-3);
+    text-align: center;
+  }
+
+  .footer-meta p {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .footer-meta a {
+    color: var(--magenta);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .footer-meta a:hover {
+    border-bottom-color: var(--magenta);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <main class="wrap">
+    <section class="hero">
+      <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 2 L4 8 L10 14"/>
+        </svg>
+        Back
+      </a>
+      <p class="page-label">Innovation</p>
+      <h1 class="hero-title">Writers don't file patents.</h1>
+      <p class="hero-sub">I filed twelve.</p>
+    </section>
+
+    <section class="content-section">
+      <div class="patent-feature">
+        <h2 class="patent-title">The first one: Webex Orbit</h2>
+        <p class="patent-meta">US 11,729,584 — Granted August 2023</p>
+
+        <div class="patent-body">
+          <p>Conceived September 2019 inside Cisco's Innovate Everywhere contest. The question was simple: what if location-aware services could appear automatically when you walked into a place, then disappear when you left?</p>
+          <p>No app downloads. No login. Just the right experience, in the right context, for as long as you were there.</p>
+          <p>I designed the system architecture, wrote the disclosure, did the UX, named it. Engaged Apple Clips as prior art on page three. Filed September 2020. Granted as US 11,729,584 in August 2023.</p>
+        </div>
+
+        <div class="tl-carousel">
+          <button class="carousel-nav carousel-prev">‹</button>
+          <div class="carousel-container">
+            <div class="carousel-track">
+              <div class="carousel-slide active">
+                <img src="winwin.png" alt="Webex Orbit Win-Win Venn diagram">
+              </div>
+              <div class="carousel-slide">
+                <img src="walmart1.png" alt="Walmart use case">
+              </div>
+              <div class="carousel-slide">
+                <img src="techflow.png" alt="Technical flow diagram">
+              </div>
+              <div class="carousel-slide">
+                <img src="multiple-venues.png" alt="Multiple venues diagram">
+              </div>
+            </div>
+          </div>
+          <button class="carousel-nav carousel-next">›</button>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+        <p class="carousel-caption">The system architecture: from concept (Win-Win overlap) to use case (Walmart) to engineering (technical flow) to vision (multiple venues).</p>
+
+        <a href="https://patents.google.com/patent/US11729584B2/en" target="_blank" rel="noopener noreferrer" class="patent-link">
+          View patent on Google Patents →
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Issued</h2>
+      <ul class="patent-list">
+        <li>
+          <div class="patent-list-number">US 12,212,819</div>
+          <div class="patent-list-title">In-band metadata for authenticity and role-based access in enterprise video streaming services</div>
+          <div class="patent-list-meta">Granted January 2025 • Co-inventor with Engi, Salgueiro, Delaunay, Gopikrishnan, Muralitharan</div>
+          <a href="https://patents.google.com/patent/US12212819B2/en" target="_blank" rel="noopener noreferrer" class="patent-list-link">Google Patents →</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Pending</h2>
+      <ul class="patent-list">
+        <li>
+          <div class="patent-list-number">US 2022/0414348 A1</div>
+          <div class="patent-list-title">Context-aware conversation comprehension equivalency analysis and real-time translation</div>
+          <div class="patent-list-meta">Published December 2022</div>
+          <a href="https://patents.google.com/patent/US20220414348A1/en" target="_blank" rel="noopener noreferrer" class="patent-list-link">Google Patents →</a>
+        </li>
+        <li>
+          <div class="patent-list-number">US 2024/0395072 A1</div>
+          <div class="patent-list-title">Techniques for authenticating a user</div>
+          <div class="patent-list-meta">Published November 2024</div>
+          <a href="https://patents.google.com/patent/US20240395072A1/en" target="_blank" rel="noopener noreferrer" class="patent-list-link">Google Patents →</a>
+        </li>
+        <li>
+          <div class="patent-list-number">US 2023/0023723 A1</div>
+          <div class="patent-list-title">Transparent security and policy enforcement for low-code orchestration</div>
+          <div class="patent-list-meta">Published January 2023</div>
+          <a href="https://patents.google.com/patent/US20230023723A1/en" target="_blank" rel="noopener noreferrer" class="patent-list-link">Google Patents →</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Principal AI</h2>
+      <div class="section-intro">
+        <p>Eight provisional patents filed in 2025. Same pattern as Cisco: question first, system second, patent third.</p>
+      </div>
+      <ul class="patent-list">
+        <li>
+          <div class="patent-list-title">Agents need context. Humans need to know what the agent knows.</div>
+          <div class="patent-list-meta">Context Scaffolding System for Facilitating Agentic Software Development</div>
+        </li>
+        <li>
+          <div class="patent-list-title">Narrative units you can add, subtract, compare, and transform.</div>
+          <div class="patent-list-meta">Composable Narrative Unit Architecture and Algebraic Operations on Narrative Graphs</div>
+        </li>
+        <li>
+          <div class="patent-list-title">Agents write code faster than humans can understand it. Behavioral contracts bridge the gap.</div>
+          <div class="patent-list-meta">Runtime Log-Driven Architectural Animation and Behavioral Validation of Software Systems</div>
+        </li>
+        <li>
+          <div class="patent-list-title">You declared what should happen. Did it actually happen?</div>
+          <div class="patent-list-meta">Intent-First Telemetry Validation with Production-to-Development Feedback Loops</div>
+        </li>
+      </ul>
+      <div class="section-intro" style="margin-top: 32px;">
+        <p>Plus four more in architectural supervision, documentation synchronization, context coordination, and repository understanding.</p>
+      </div>
+    </section>
+
+    <p class="closing-statement">A patent is a brief with a longer deadline. A startup is a brief you wrote yourself.</p>
+
+    <!-- Related Work -->
+    <section class="related-work">
+      <div class="related-header">Related Work</div>
+      <div class="related-grid">
+        <a href="prototypes.html" class="related-card">
+          <div class="related-tag">Prototypes</div>
+          <div class="related-title">Narrative Agent</div>
+          <div class="related-description">Building AI systems that understand complex problems. Same inventor mindset.</div>
+        </a>
+        <a href="strategy.html" class="related-card">
+          <div class="related-tag">Strategy</div>
+          <div class="related-title">Cisco AI Narrative</div>
+          <div class="related-description">Systems thinking applied to messaging. Frameworks that scale.</div>
+        </a>
+        <a href="comms.html" class="related-card">
+          <div class="related-tag">Communications</div>
+          <div class="related-title">Cisco Newsroom</div>
+          <div class="related-description">Technical writing meets storytelling. Making complex ideas accessible.</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-nav">
+          <div class="footer-section">
+            <h3 class="footer-heading">Work</h3>
+            <ul class="footer-links">
+              <li><a href="strategy.html">Strategy</a></li>
+              <li><a href="prototypes.html">Prototypes</a></li>
+              <li><a href="comms.html">Communications</a></li>
+              <li><a href="agency.html">Agency</a></li>
+              <li><a href="innovation.html">Innovation</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3 class="footer-heading">Connect</h3>
+            <ul class="footer-links">
+              <li><a href="about.html">About</a></li>
+              <li><a href="mailto:jflanneryallen@gmail.com">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <p>© 2026 Flannery Allen ·
+            <a href="privacy.html">Privacy</a> ·
+            <a href="https://github.com/FlanneryAllen/flanneryallen.github.io" target="_blank" rel="noopener noreferrer">Source</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<!-- Image Lightbox Modal -->
+<div id="imageLightbox" class="lightbox-modal">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightboxImg" alt="Enlarged view">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+// Lightbox functionality for innovation page carousel (using event delegation)
+document.addEventListener('DOMContentLoaded', function() {
+  const lightbox = document.getElementById('imageLightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const closeBtn = document.querySelector('.lightbox-close');
+
+  // Use event delegation to handle clicks on carousel images
+  document.body.addEventListener('click', function(e) {
+    const clickedImg = e.target;
+
+    if (clickedImg.tagName === 'IMG' && clickedImg.closest('.carousel-slide')) {
+      e.stopPropagation(); // Prevent carousel click handler
+      e.preventDefault();
+
+      lightbox.style.display = 'block';
+      lightboxImg.src = clickedImg.src;
+      lightboxImg.alt = clickedImg.alt;
+
+      // Use the image alt text as caption
+      if (clickedImg.alt) {
+        lightboxCaption.textContent = clickedImg.alt;
+      } else {
+        lightboxCaption.textContent = '';
+      }
+
+      // Prevent body scroll when lightbox is open
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  // Close lightbox when clicking the X button
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeLightbox);
+  }
+
+  // Close lightbox when clicking outside the image
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Close lightbox with ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.style.display === 'block') {
+      closeLightbox();
+    }
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = ''; // Restore body scroll
+  }
+});
+</script>
+</body>
+</html>

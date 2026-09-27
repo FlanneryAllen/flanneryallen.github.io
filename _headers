@@ -1,0 +1,24 @@
+# Security headers for Netlify hosting
+# If using GitHub Pages, these won't work - use meta tags instead
+
+/*
+  # Prevent XSS attacks
+  X-XSS-Protection: 1; mode=block
+
+  # Prevent MIME type sniffing
+  X-Content-Type-Options: nosniff
+
+  # Prevent clickjacking
+  X-Frame-Options: DENY
+
+  # Force HTTPS
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Referrer policy for privacy
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Permissions policy (formerly feature policy)
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.chatbase.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.chatbase.co https://narrative-intelligence-demo.netlify.app; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;
